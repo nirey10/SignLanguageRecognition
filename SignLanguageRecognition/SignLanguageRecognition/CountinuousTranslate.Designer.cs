@@ -1,6 +1,6 @@
 ﻿namespace SignLanguageRecognition
 {
-    partial class Form3
+    partial class CountinuousTranslate
     {
         /// <summary>
         /// Required designer variable.

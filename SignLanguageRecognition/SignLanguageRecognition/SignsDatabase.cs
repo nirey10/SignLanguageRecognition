@@ -11,16 +11,16 @@ using Microsoft.VisualBasic;
 
 namespace SignLanguageRecognition
 {
-    public partial class Form2 : Form
+    public partial class SignsDatabase : Form
     {
-        public Form2()
+        public SignsDatabase()
         {
             InitializeComponent();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Form1 menu = new Form1();
+            MainMenu menu = new MainMenu();
             menu.Show();
             this.Hide();
         }
@@ -33,6 +33,11 @@ namespace SignLanguageRecognition
         {
             string x = Interaction.InputBox("Would you like to save the sample?", "Recorded Stopped", "Enter Sample Name", 10, 10);
             MessageBox.Show(x);
+
+        }
+
+        private void SignsDatabase_Load(object sender, EventArgs e)
+        {
 
         }
     }

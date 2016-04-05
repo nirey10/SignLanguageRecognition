@@ -1,6 +1,6 @@
 ﻿namespace SignLanguageRecognition
 {
-    partial class Form2
+    partial class SignsDatabase
     {
         /// <summary>
         /// Required designer variable.
@@ -149,7 +149,7 @@
             this.button4.TabIndex = 16;
             this.button4.UseVisualStyleBackColor = false;
             // 
-            // Form2
+            // SignsDatabase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -163,8 +163,9 @@
             this.Controls.Add(this.ListBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Form2";
+            this.Name = "SignsDatabase";
             this.Text = "Sign Language Database";
+            this.Load += new System.EventHandler(this.SignsDatabase_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

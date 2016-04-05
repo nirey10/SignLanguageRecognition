@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace SignLanguageRecognition
 {
-    public partial class Form3 : Form
+    public partial class CountinuousTranslate : Form
     {
-        public Form3()
+        public CountinuousTranslate()
         {
             InitializeComponent();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Form1 menu = new Form1();
+            MainMenu menu = new MainMenu();
             menu.Show();
             this.Hide();
         }
