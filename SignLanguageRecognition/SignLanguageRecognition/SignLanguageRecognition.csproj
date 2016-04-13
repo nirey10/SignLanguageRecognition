@@ -48,6 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LeapController.cs" />
+    <Compile Include="LeapControllerInterface.cs" />
+    <Compile Include="LForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>

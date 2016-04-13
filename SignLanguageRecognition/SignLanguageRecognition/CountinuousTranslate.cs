@@ -23,5 +23,10 @@ namespace SignLanguageRecognition
             menu.Show();
             this.Hide();
         }
+
+        private void CountinuousTranslate_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

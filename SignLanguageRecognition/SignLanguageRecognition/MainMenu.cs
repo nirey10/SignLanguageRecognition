@@ -13,11 +13,14 @@ using Leap;
 
 namespace SignLanguageRecognition
 {
-    public partial class MainMenu : Form
+    public partial class MainMenu : Form,LeapControllerInterface
     {
         public MainMenu()
         {
             InitializeComponent();
+            LeapControllerInterface myInterface = this;
+
+            LeapController myLeap = new LeapController(this, myInterface);
         }
 
         private void SignDatabaseBtn_Click(object sender, EventArgs e)
@@ -37,6 +40,24 @@ namespace SignLanguageRecognition
         private void MainMenu_Load(object sender, EventArgs e)
         {
 
+        }
+
+         void LeapControllerInterface.onConnect()
+        {
+            ConnectionLable.Text = "Leap Connected";
+            ConnectionLable.ForeColor = Color.Green;
+
+        }
+
+         void LeapControllerInterface.onDisconnect()
+        {
+            ConnectionLable.Text = "Leap is Not Connected";
+            ConnectionLable.ForeColor = Color.Crimson;
+        }
+
+         void LeapControllerInterface.frameListener(Frame frame)
+        {
+            throw new NotImplementedException();
         }
     }
 }

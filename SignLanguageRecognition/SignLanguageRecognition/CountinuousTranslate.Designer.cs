@@ -117,7 +117,7 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // Form3
+            // CountinuousTranslate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -130,8 +130,9 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Panel1);
             this.Controls.Add(this.label2);
-            this.Name = "Form3";
+            this.Name = "CountinuousTranslate";
             this.Text = "Sign Recognition";
+            this.Load += new System.EventHandler(this.CountinuousTranslate_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
