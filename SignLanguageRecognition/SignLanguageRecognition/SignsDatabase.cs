@@ -21,11 +21,12 @@ namespace SignLanguageRecognition
    
     public partial class SignsDatabase : Form, ILeapEventDelegate
     {
-
+        // database connection
         OleDbConnection connection;
         OleDbCommand command;
         OleDbDataReader dr;
 
+        // Leap Listener 
         private Controller controller;
         private LeapEventListener listener;
         delegate void LeapEventDelegate(string EventName);
@@ -34,11 +35,11 @@ namespace SignLanguageRecognition
         public SignsDatabase()
         {
             InitializeComponent();
-            InitializeList();
 
-            //   LeapControllerInterface myInterface = this;
-            //LeapController myLeap = new LeapController(this, myInterface);
 
+            InitializeList(); // initialize samples from database to a list
+
+            //initializing listener and controller
             this.controller = new Controller();
             this.listener = new LeapEventListener(this);
             controller.AddListener(listener);
@@ -104,7 +105,7 @@ namespace SignLanguageRecognition
             connection.Open();
             dr = command.ExecuteReader();
 
-            if (dr.HasRows)
+            if (dr.HasRows) // run over the table and put it on the list
             {
                 while (dr.Read())
                 {
@@ -112,19 +113,15 @@ namespace SignLanguageRecognition
                 }
             }
         }
-        private void SignsDatabase_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            this.Hide();
-            e.Cancel = true; // this cancels the close event.
-        }
-        void connectHandler()
+                
+        void connectHandler() // set leap gestures when connected
         {
             this.controller.EnableGesture(Gesture.GestureType.TYPE_CIRCLE);
             this.controller.Config.SetFloat("Gesture.Circle.MinRadius", 40.0f);
             this.controller.EnableGesture(Gesture.GestureType.TYPE_SWIPE);
 
         }
-        public void LeapEventNotification(string EventName)
+        public void LeapEventNotification(string EventName) // event notification handler
         {
             if (!this.InvokeRequired)
             {
@@ -141,7 +138,7 @@ namespace SignLanguageRecognition
                         break;
                     case "onFrame":
                         if (!this.Disposing)
-                            this.frameListener(this.controller.Frame());
+                            this.frameListener(this.controller.Frame()); // sends frame to the handler
                         break;
                 }
             }
@@ -151,7 +148,7 @@ namespace SignLanguageRecognition
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void BackToMenuBtn_Click(object sender, EventArgs e)
         {
             MainMenu menu = new MainMenu();
             menu.Show();
@@ -165,7 +162,7 @@ namespace SignLanguageRecognition
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void CaptureFrameBtn_Click(object sender, EventArgs e)
         {
 
 
@@ -178,7 +175,7 @@ namespace SignLanguageRecognition
 
         int i = 0;
 
-        void frameListener(Frame frame)
+        void frameListener(Frame frame) // the frame handler
         {
 
             i++;
@@ -198,6 +195,11 @@ namespace SignLanguageRecognition
         }
 
         private void informationBox_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void StartListeningBtn_Click(object sender, EventArgs e)
         {
 
         }

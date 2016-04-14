@@ -102,7 +102,7 @@
             this.CaptureFrameBtn.Size = new System.Drawing.Size(50, 50);
             this.CaptureFrameBtn.TabIndex = 13;
             this.CaptureFrameBtn.UseVisualStyleBackColor = false;
-            this.CaptureFrameBtn.Click += new System.EventHandler(this.button1_Click);
+            this.CaptureFrameBtn.Click += new System.EventHandler(this.CaptureFrameBtn_Click);
             // 
             // StartListeningBtn
             // 
@@ -117,6 +117,7 @@
             this.StartListeningBtn.TabIndex = 14;
             this.StartListeningBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.StartListeningBtn.UseVisualStyleBackColor = false;
+            this.StartListeningBtn.Click += new System.EventHandler(this.StartListeningBtn_Click);
             // 
             // BackToMenuBtn
             // 
@@ -128,7 +129,7 @@
             this.BackToMenuBtn.TabIndex = 15;
             this.BackToMenuBtn.Text = "Back to Menu";
             this.BackToMenuBtn.UseVisualStyleBackColor = true;
-            this.BackToMenuBtn.Click += new System.EventHandler(this.button3_Click);
+            this.BackToMenuBtn.Click += new System.EventHandler(this.BackToMenuBtn_Click);
             // 
             // DeleteSampleBtn
             // 

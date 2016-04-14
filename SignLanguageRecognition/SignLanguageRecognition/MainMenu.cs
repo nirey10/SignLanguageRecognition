@@ -22,10 +22,7 @@ namespace SignLanguageRecognition
     public partial class MainMenu : Form, ILeapEventDelegate
     {
 
-        OleDbConnection connection;
-        OleDbCommand command;
-        OleDbDataReader dr;
-
+        // Leap Listener 
         private Controller controller;
         private LeapEventListener listener;
         delegate void LeapEventDelegate(string EventName);
@@ -34,48 +31,21 @@ namespace SignLanguageRecognition
         {
             InitializeComponent();
 
+
+            //initializing listener and controller
             this.controller = new Controller();
             this.listener = new LeapEventListener(this);
             controller.AddListener(listener);
-
-
-            //  myLeap = new LeapController(this, myInterface);
-
-            /*
-            connection = new OleDbConnection();
-            command =new OleDbCommand();
-
-
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Resources\SVMdataset.accdb";
-            command.Connection = connection;
-
-            string q = "select * from DataSet";
-            command.CommandText = q;
-            connection.Open();
-            dr = command.ExecuteReader();
-
-            if (dr.HasRows)
-            {
-                while(dr.Read())
-                {
-                    ConnectionLable.Text = dr[1].ToString();
-                }
-            }
-            connection.Close();
-            
-    */
-
-
         }
 
-        void connectHandler()
+        void connectHandler() // set leap gestures when connected
         {
             this.controller.EnableGesture(Gesture.GestureType.TYPE_CIRCLE);
             this.controller.Config.SetFloat("Gesture.Circle.MinRadius", 40.0f);
             this.controller.EnableGesture(Gesture.GestureType.TYPE_SWIPE);
 
         }
-        public void LeapEventNotification(string EventName)
+        public void LeapEventNotification(string EventName) // event notification handler
         {
             if (!this.InvokeRequired)
             {
@@ -125,14 +95,14 @@ namespace SignLanguageRecognition
 
         }
 
-         void onConnect()
+         void onConnect() // execute when connected
         {
             ConnectionLable.Text = "Leap Connected";
             ConnectionLable.ForeColor = Color.Green;
 
         }
 
-         void onDisconnect()
+         void onDisconnect() // execute when disconnected
         {
             ConnectionLable.Text = "Leap is Not Connected";
             ConnectionLable.ForeColor = Color.Crimson;
