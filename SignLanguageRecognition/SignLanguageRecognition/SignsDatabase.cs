@@ -11,23 +11,119 @@ using Microsoft.VisualBasic;
 using System.Diagnostics;
 using System.Threading;
 using Leap;
+using Accord.Statistics.Kernels;
+using Accord.MachineLearning.VectorMachines;
+using Accord.MachineLearning.VectorMachines.Learning;
+using System.Data.OleDb;
 
 namespace SignLanguageRecognition
 {
-    public partial class SignsDatabase : Form, SignsDatabase.ILeapEventDelegate
+   
+    public partial class SignsDatabase : Form, ILeapEventDelegate
     {
+
+        OleDbConnection connection;
+        OleDbCommand command;
+        OleDbDataReader dr;
+
         private Controller controller;
         private LeapEventListener listener;
         delegate void LeapEventDelegate(string EventName);
 
+
         public SignsDatabase()
         {
             InitializeComponent();
+            InitializeList();
+
+            //   LeapControllerInterface myInterface = this;
+            //LeapController myLeap = new LeapController(this, myInterface);
+
             this.controller = new Controller();
             this.listener = new LeapEventListener(this);
             controller.AddListener(listener);
+            // ============================================== SVM ==============================================
+
+            double[][] inputs =
+                       {
+    new double[] { 11,2,0},
+    new double[] { 7,5,2},
+    new double[] { 5,-2 ,-1 },
+    new double[] { -2,-2 ,-2},
+    new double[] { 0,-2 , 0},
+    new double[] { 5,5 ,-1},
+    //new double[] { 4,4 },
+    //new double[] { -3,4 },
+    //new double[] { -7,4 },
+    //new double[] { -3,3 },
+    //new double[] { -2,4 },
+    //new double[] { -4,4 },
+};
+
+            // Output for each of the inputs
+            int[] outputs = { 1, 1, 0, 0, 0, 1 };
+
+            // Create a new Linear kernel
+            IKernel kernel = new Linear();
+
+            // Create a new Multi-class Support Vector Machine with one input,
+            //  using the linear kernel and for four disjoint classes.
+            var machine = new MulticlassSupportVectorMachine(3, kernel, 2);
+
+            // Create the Multi-class learning algorithm for the machine
+            var teacher = new MulticlassSupportVectorLearning(machine, inputs, outputs);
+
+            // Configure the learning algorithm to use SMO to train the
+            //  underlying SVMs in each of the binary class subproblems.
+            teacher.Algorithm = (svm, classInputs, classOutputs, i, j) =>
+                new SequentialMinimalOptimization(svm, classInputs, classOutputs);
+
+            // Run the learning algorithm   
+            double error = teacher.Run(); // output should be 0
+
+            // Compute the decision output for one of the input vectors
+            int decision = machine.Compute(new double[] { 2, 2, -1 }); // result should be 3
+
+            Console.WriteLine("{0}", decision);
+
+
         }
 
+        private void InitializeList()
+        {
+            // ============================================== Database ==============================================
+            connection = new OleDbConnection();
+            command = new OleDbCommand();
+
+
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Resources\SVMdataset.accdb";
+            command.Connection = connection;
+
+            string q = "select * from DataSet";
+            command.CommandText = q;
+            connection.Open();
+            dr = command.ExecuteReader();
+
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    SamplesList.Items.Add(dr[1].ToString());
+                }
+            }
+        }
+        private void SignsDatabase_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+            e.Cancel = true; // this cancels the close event.
+        }
+        void connectHandler()
+        {
+            this.controller.EnableGesture(Gesture.GestureType.TYPE_CIRCLE);
+            this.controller.Config.SetFloat("Gesture.Circle.MinRadius", 40.0f);
+            this.controller.EnableGesture(Gesture.GestureType.TYPE_SWIPE);
+
+        }
         public void LeapEventNotification(string EventName)
         {
             if (!this.InvokeRequired)
@@ -37,76 +133,23 @@ namespace SignLanguageRecognition
                     case "onInit":
                         Debug.WriteLine("Init");
                         break;
-                    case "onConnect":
+                    case "onConnect":                      
                         this.connectHandler();
+                        break;
+                    case "onDisconnect":                       
+                        //this.connectHandler();
                         break;
                     case "onFrame":
                         if (!this.Disposing)
-                            this.newFrameHandler(this.controller.Frame());
+                            this.frameListener(this.controller.Frame());
                         break;
                 }
             }
             else
             {
-                BeginInvoke(new LeapEventDelegate(LeapEventNotification), new object[] { EventName });
+                this.BeginInvoke(new LeapEventDelegate(LeapEventNotification), new object[] { EventName });
             }
         }
-
-        void connectHandler()
-        {
-            this.controller.EnableGesture(Gesture.GestureType.TYPE_CIRCLE);
-            this.controller.Config.SetFloat("Gesture.Circle.MinRadius", 40.0f);
-            this.controller.EnableGesture(Gesture.GestureType.TYPE_SWIPE);
-        }
-
-        void newFrameHandler(Frame frame)
-        {
-            //The following are Label controls added in design view for the form
-            this.label1.Text = frame.Id.ToString();
-            this.label2.Text = frame.Timestamp.ToString();
-           // this.label3.Text = frame.CurrentFramesPerSecond.ToString();
-           // this.label4.Text = frame.IsValid.ToString();
-
-        }
-
-
-        public interface ILeapEventDelegate
-        {
-            void LeapEventNotification(string EventName);
-        }
-
-        public class LeapEventListener : Listener
-        {
-            ILeapEventDelegate eventDelegate;
-
-            public LeapEventListener(ILeapEventDelegate delegateObject)
-            {
-                this.eventDelegate = delegateObject;
-            }
-            public override void OnInit(Controller controller)
-            {
-                this.eventDelegate.LeapEventNotification("onInit");
-            }
-            public override void OnConnect(Controller controller)
-            {
-                this.eventDelegate.LeapEventNotification("onConnect");
-            }
-            public override void OnFrame(Controller controller)
-            {
-                this.eventDelegate.LeapEventNotification("onFrame");
-            }
-            public override void OnExit(Controller controller)
-            {
-                this.eventDelegate.LeapEventNotification("onExit");
-            }
-            public override void OnDisconnect(Controller controller)
-            {
-                this.eventDelegate.LeapEventNotification("onDisconnect");
-            }
-
-
-        }
-
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -117,16 +160,44 @@ namespace SignLanguageRecognition
 
         private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string x = Interaction.InputBox("Would you like to save the sample?", "Recorded Stopped", "Enter Sample Name", 10, 10);
-            MessageBox.Show(x);
+
 
         }
 
         private void SignsDatabase_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        int i = 0;
+
+        void frameListener(Frame frame)
+        {
+
+            i++;
+            if (i == 10)
+            {
+
+                OutputData1.Text = frame.Hands[0].PalmPosition.ToString();
+                OutputData2.Text = frame.Hands[0].Fingers[0].TipPosition.ToString();
+                OutputData3.Text = frame.Hands[0].Fingers[1].TipPosition.ToString();
+                OutputData4.Text = frame.Hands[0].Fingers[2].TipPosition.ToString();
+                OutputData5.Text = frame.Hands[0].Fingers[3].TipPosition.ToString();
+                OutputData6.Text = frame.Hands[0].Fingers[4].TipPosition.ToString();
+                i = 0;
+
+            }
+
+        }
+
+        private void informationBox_Enter(object sender, EventArgs e)
         {
 
         }

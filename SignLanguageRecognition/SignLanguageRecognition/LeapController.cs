@@ -54,7 +54,7 @@ namespace SignLanguageRecognition
                         break;
                     case "onFrame":
                         if (!myForm.Disposing)
-                            this.newFrameHandler(this.controller.Frame());
+                            myInterface.frameListener(this.controller.Frame());
                         break;
                 }
             }

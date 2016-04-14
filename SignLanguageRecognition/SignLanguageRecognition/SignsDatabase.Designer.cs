@@ -28,14 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignsDatabase));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.ListBox1 = new System.Windows.Forms.ListBox();
-            this.Panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.SamplesList = new System.Windows.Forms.ListBox();
+            this.CaptureFrameBtn = new System.Windows.Forms.Button();
+            this.StartListeningBtn = new System.Windows.Forms.Button();
+            this.BackToMenuBtn = new System.Windows.Forms.Button();
+            this.DeleteSampleBtn = new System.Windows.Forms.Button();
+            this.informationBox = new System.Windows.Forms.GroupBox();
+            this.OutputData6 = new System.Windows.Forms.Label();
+            this.OutputData5 = new System.Windows.Forms.Label();
+            this.OutputData4 = new System.Windows.Forms.Label();
+            this.OutputData3 = new System.Windows.Forms.Label();
+            this.OutputData2 = new System.Windows.Forms.Label();
+            this.OutputData1 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.informationBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -54,118 +68,270 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic);
+            this.label2.Font = new System.Drawing.Font("Monotype Corsiva", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label2.Location = new System.Drawing.Point(198, 24);
+            this.label2.Location = new System.Drawing.Point(167, 24);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(200, 25);
+            this.label2.Size = new System.Drawing.Size(289, 36);
             this.label2.TabIndex = 4;
             this.label2.Text = "Sign Language Database";
             // 
-            // ListBox1
+            // SamplesList
             // 
-            this.ListBox1.BackColor = System.Drawing.Color.LightGray;
-            this.ListBox1.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic);
-            this.ListBox1.ForeColor = System.Drawing.Color.SteelBlue;
-            this.ListBox1.FormattingEnabled = true;
-            this.ListBox1.ItemHeight = 25;
-            this.ListBox1.Items.AddRange(new object[] {
-            "א-1",
-            "א-2",
-            "א-3",
-            "ב-1",
-            "ב-2",
-            "ג-1",
-            "ג-2",
-            "ג-3",
-            "ד-1",
-            "ד-2",
-            "ד-3"});
-            this.ListBox1.Location = new System.Drawing.Point(76, 158);
-            this.ListBox1.Name = "ListBox1";
-            this.ListBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ListBox1.Size = new System.Drawing.Size(117, 179);
-            this.ListBox1.TabIndex = 11;
-            this.ListBox1.SelectedIndexChanged += new System.EventHandler(this.ListBox1_SelectedIndexChanged);
+            this.SamplesList.BackColor = System.Drawing.Color.LightGray;
+            this.SamplesList.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic);
+            this.SamplesList.ForeColor = System.Drawing.Color.Salmon;
+            this.SamplesList.FormattingEnabled = true;
+            this.SamplesList.ItemHeight = 25;
+            this.SamplesList.Location = new System.Drawing.Point(76, 158);
+            this.SamplesList.Name = "SamplesList";
+            this.SamplesList.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.SamplesList.Size = new System.Drawing.Size(117, 179);
+            this.SamplesList.TabIndex = 11;
+            this.SamplesList.SelectedIndexChanged += new System.EventHandler(this.ListBox1_SelectedIndexChanged);
             // 
-            // Panel1
+            // CaptureFrameBtn
             // 
-            this.Panel1.BackgroundImage = global::SignLanguageRecognition.Properties.Resources.leapHand;
-            this.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Panel1.Location = new System.Drawing.Point(298, 89);
-            this.Panel1.Name = "Panel1";
-            this.Panel1.Size = new System.Drawing.Size(255, 248);
-            this.Panel1.TabIndex = 12;
+            this.CaptureFrameBtn.BackColor = System.Drawing.Color.Transparent;
+            this.CaptureFrameBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CaptureFrameBtn.BackgroundImage")));
+            this.CaptureFrameBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CaptureFrameBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CaptureFrameBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.CaptureFrameBtn.Location = new System.Drawing.Point(464, 354);
+            this.CaptureFrameBtn.Name = "CaptureFrameBtn";
+            this.CaptureFrameBtn.Size = new System.Drawing.Size(50, 50);
+            this.CaptureFrameBtn.TabIndex = 13;
+            this.CaptureFrameBtn.UseVisualStyleBackColor = false;
+            this.CaptureFrameBtn.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button1
+            // StartListeningBtn
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImage = global::SignLanguageRecognition.Properties.Resources.Stop_red_icon;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.Transparent;
-            this.button1.Location = new System.Drawing.Point(457, 360);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(47, 46);
-            this.button1.TabIndex = 13;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.StartListeningBtn.BackColor = System.Drawing.Color.Transparent;
+            this.StartListeningBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("StartListeningBtn.BackgroundImage")));
+            this.StartListeningBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.StartListeningBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.StartListeningBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.StartListeningBtn.Location = new System.Drawing.Point(309, 354);
+            this.StartListeningBtn.Name = "StartListeningBtn";
+            this.StartListeningBtn.Size = new System.Drawing.Size(50, 50);
+            this.StartListeningBtn.TabIndex = 14;
+            this.StartListeningBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.StartListeningBtn.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // BackToMenuBtn
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.BackgroundImage = global::SignLanguageRecognition.Properties.Resources.Start_icon;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.Transparent;
-            this.button2.Location = new System.Drawing.Point(357, 360);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(50, 46);
-            this.button2.TabIndex = 14;
-            this.button2.UseVisualStyleBackColor = false;
+            this.BackToMenuBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F);
+            this.BackToMenuBtn.ForeColor = System.Drawing.Color.SteelBlue;
+            this.BackToMenuBtn.Location = new System.Drawing.Point(76, 374);
+            this.BackToMenuBtn.Name = "BackToMenuBtn";
+            this.BackToMenuBtn.Size = new System.Drawing.Size(117, 32);
+            this.BackToMenuBtn.TabIndex = 15;
+            this.BackToMenuBtn.Text = "Back to Menu";
+            this.BackToMenuBtn.UseVisualStyleBackColor = true;
+            this.BackToMenuBtn.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button3
+            // DeleteSampleBtn
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F);
-            this.button3.ForeColor = System.Drawing.Color.SteelBlue;
-            this.button3.Location = new System.Drawing.Point(76, 374);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(117, 32);
-            this.button3.TabIndex = 15;
-            this.button3.Text = "Back to Menu";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.DeleteSampleBtn.BackColor = System.Drawing.Color.Transparent;
+            this.DeleteSampleBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("DeleteSampleBtn.BackgroundImage")));
+            this.DeleteSampleBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.DeleteSampleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteSampleBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.DeleteSampleBtn.Location = new System.Drawing.Point(47, 313);
+            this.DeleteSampleBtn.Name = "DeleteSampleBtn";
+            this.DeleteSampleBtn.Size = new System.Drawing.Size(23, 24);
+            this.DeleteSampleBtn.TabIndex = 16;
+            this.DeleteSampleBtn.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // informationBox
             // 
-            this.button4.BackColor = System.Drawing.Color.Transparent;
-            this.button4.BackgroundImage = global::SignLanguageRecognition.Properties.Resources.delete_icon;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ForeColor = System.Drawing.Color.Transparent;
-            this.button4.Location = new System.Drawing.Point(47, 313);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(23, 24);
-            this.button4.TabIndex = 16;
-            this.button4.UseVisualStyleBackColor = false;
+            this.informationBox.BackColor = System.Drawing.Color.Transparent;
+            this.informationBox.Controls.Add(this.OutputData6);
+            this.informationBox.Controls.Add(this.OutputData5);
+            this.informationBox.Controls.Add(this.OutputData4);
+            this.informationBox.Controls.Add(this.OutputData3);
+            this.informationBox.Controls.Add(this.OutputData2);
+            this.informationBox.Controls.Add(this.OutputData1);
+            this.informationBox.Controls.Add(this.label8);
+            this.informationBox.Controls.Add(this.label7);
+            this.informationBox.Controls.Add(this.label6);
+            this.informationBox.Controls.Add(this.label5);
+            this.informationBox.Controls.Add(this.label4);
+            this.informationBox.Controls.Add(this.label3);
+            this.informationBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.informationBox.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.informationBox.ForeColor = System.Drawing.Color.SteelBlue;
+            this.informationBox.Location = new System.Drawing.Point(303, 113);
+            this.informationBox.Name = "informationBox";
+            this.informationBox.Size = new System.Drawing.Size(322, 224);
+            this.informationBox.TabIndex = 17;
+            this.informationBox.TabStop = false;
+            this.informationBox.Text = "Coordinates Information";
+            this.informationBox.Enter += new System.EventHandler(this.informationBox_Enter);
+            // 
+            // OutputData6
+            // 
+            this.OutputData6.AutoSize = true;
+            this.OutputData6.BackColor = System.Drawing.Color.Transparent;
+            this.OutputData6.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OutputData6.ForeColor = System.Drawing.Color.SteelBlue;
+            this.OutputData6.Location = new System.Drawing.Point(87, 162);
+            this.OutputData6.Name = "OutputData6";
+            this.OutputData6.Size = new System.Drawing.Size(51, 22);
+            this.OutputData6.TabIndex = 15;
+            this.OutputData6.Text = "(0,0,0)";
+            // 
+            // OutputData5
+            // 
+            this.OutputData5.AutoSize = true;
+            this.OutputData5.BackColor = System.Drawing.Color.Transparent;
+            this.OutputData5.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OutputData5.ForeColor = System.Drawing.Color.SteelBlue;
+            this.OutputData5.Location = new System.Drawing.Point(87, 140);
+            this.OutputData5.Name = "OutputData5";
+            this.OutputData5.Size = new System.Drawing.Size(51, 22);
+            this.OutputData5.TabIndex = 14;
+            this.OutputData5.Text = "(0,0,0)";
+            // 
+            // OutputData4
+            // 
+            this.OutputData4.AutoSize = true;
+            this.OutputData4.BackColor = System.Drawing.Color.Transparent;
+            this.OutputData4.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OutputData4.ForeColor = System.Drawing.Color.SteelBlue;
+            this.OutputData4.Location = new System.Drawing.Point(87, 118);
+            this.OutputData4.Name = "OutputData4";
+            this.OutputData4.Size = new System.Drawing.Size(51, 22);
+            this.OutputData4.TabIndex = 13;
+            this.OutputData4.Text = "(0,0,0)";
+            // 
+            // OutputData3
+            // 
+            this.OutputData3.AutoSize = true;
+            this.OutputData3.BackColor = System.Drawing.Color.Transparent;
+            this.OutputData3.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OutputData3.ForeColor = System.Drawing.Color.SteelBlue;
+            this.OutputData3.Location = new System.Drawing.Point(87, 96);
+            this.OutputData3.Name = "OutputData3";
+            this.OutputData3.Size = new System.Drawing.Size(51, 22);
+            this.OutputData3.TabIndex = 12;
+            this.OutputData3.Text = "(0,0,0)";
+            // 
+            // OutputData2
+            // 
+            this.OutputData2.AutoSize = true;
+            this.OutputData2.BackColor = System.Drawing.Color.Transparent;
+            this.OutputData2.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OutputData2.ForeColor = System.Drawing.Color.SteelBlue;
+            this.OutputData2.Location = new System.Drawing.Point(87, 74);
+            this.OutputData2.Name = "OutputData2";
+            this.OutputData2.Size = new System.Drawing.Size(51, 22);
+            this.OutputData2.TabIndex = 11;
+            this.OutputData2.Text = "(0,0,0)";
+            // 
+            // OutputData1
+            // 
+            this.OutputData1.AutoSize = true;
+            this.OutputData1.BackColor = System.Drawing.Color.Transparent;
+            this.OutputData1.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OutputData1.ForeColor = System.Drawing.Color.SteelBlue;
+            this.OutputData1.Location = new System.Drawing.Point(87, 52);
+            this.OutputData1.Name = "OutputData1";
+            this.OutputData1.Size = new System.Drawing.Size(51, 22);
+            this.OutputData1.TabIndex = 10;
+            this.OutputData1.Text = "(0,0,0)";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Salmon;
+            this.label8.Location = new System.Drawing.Point(6, 162);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(50, 22);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "Palm:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Salmon;
+            this.label7.Location = new System.Drawing.Point(6, 140);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(50, 22);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "Palm:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Salmon;
+            this.label6.Location = new System.Drawing.Point(6, 118);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(50, 22);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Palm:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Salmon;
+            this.label5.Location = new System.Drawing.Point(6, 96);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(50, 22);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Palm:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Salmon;
+            this.label4.Location = new System.Drawing.Point(6, 74);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 22);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Palm:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Salmon;
+            this.label3.Location = new System.Drawing.Point(6, 52);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(50, 22);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Palm:";
             // 
             // SignsDatabase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SignLanguageRecognition.Properties.Resources.images;
-            this.ClientSize = new System.Drawing.Size(596, 430);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.Panel1);
-            this.Controls.Add(this.ListBox1);
+            this.ClientSize = new System.Drawing.Size(667, 430);
+            this.Controls.Add(this.informationBox);
+            this.Controls.Add(this.DeleteSampleBtn);
+            this.Controls.Add(this.BackToMenuBtn);
+            this.Controls.Add(this.StartListeningBtn);
+            this.Controls.Add(this.CaptureFrameBtn);
+            this.Controls.Add(this.SamplesList);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "SignsDatabase";
             this.Text = "Sign Language Database";
             this.Load += new System.EventHandler(this.SignsDatabase_Load);
+            this.informationBox.ResumeLayout(false);
+            this.informationBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -175,11 +341,23 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        internal System.Windows.Forms.ListBox ListBox1;
-        internal System.Windows.Forms.Panel Panel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        internal System.Windows.Forms.ListBox SamplesList;
+        private System.Windows.Forms.Button CaptureFrameBtn;
+        private System.Windows.Forms.Button StartListeningBtn;
+        private System.Windows.Forms.Button BackToMenuBtn;
+        private System.Windows.Forms.Button DeleteSampleBtn;
+        private System.Windows.Forms.GroupBox informationBox;
+        private System.Windows.Forms.Label OutputData6;
+        private System.Windows.Forms.Label OutputData5;
+        private System.Windows.Forms.Label OutputData4;
+        private System.Windows.Forms.Label OutputData3;
+        private System.Windows.Forms.Label OutputData2;
+        private System.Windows.Forms.Label OutputData1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
     }
 }
