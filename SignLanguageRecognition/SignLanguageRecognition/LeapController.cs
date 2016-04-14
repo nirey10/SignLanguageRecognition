@@ -14,9 +14,9 @@ using Leap;
 
 namespace SignLanguageRecognition
 {
-    class LeapController : LeapController.ILeapEventDelegate
+    class LeapController //: LeapController.ILeapEventDelegate
     {
-        
+        /*
         private Controller controller;
         private LeapEventListener listener;
         delegate void LeapEventDelegate(string EventName);
@@ -116,6 +116,6 @@ namespace SignLanguageRecognition
             {
                 this.eventDelegate.LeapEventNotification("onDisconnect");
             }
-        }
+        }*/
     }
 }
