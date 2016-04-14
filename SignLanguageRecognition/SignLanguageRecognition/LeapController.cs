@@ -13,7 +13,7 @@ using System.Threading;
 using Leap;
 
 namespace SignLanguageRecognition
-{
+{ ///chaka laka
     class LeapController //: LeapController.ILeapEventDelegate
     {
         /*
