@@ -82,6 +82,7 @@
             this.SingleInstancesTranslatingBtn.TabIndex = 3;
             this.SingleInstancesTranslatingBtn.Text = "Single Instances Translating";
             this.SingleInstancesTranslatingBtn.UseVisualStyleBackColor = true;
+            this.SingleInstancesTranslatingBtn.Click += new System.EventHandler(this.SingleInstancesTranslatingBtn_Click);
             // 
             // ConnectionStatusLabel
             // 

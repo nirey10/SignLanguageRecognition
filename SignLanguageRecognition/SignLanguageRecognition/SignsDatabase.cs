@@ -32,62 +32,26 @@ namespace SignLanguageRecognition
         delegate void LeapEventDelegate(string EventName);
 
 
+        Frame currentFrame;// saves current frame
+
+        bool UpdateEnable = true; // enable lables update of distances
+
+
+
+        private int i = 0; // listener interval
+
         public SignsDatabase()
         {
             InitializeComponent();
-
+            this.Focus();
 
             InitializeList(); // initialize samples from database to a list
 
             //initializing listener and controller
-            this.controller = new Controller();
-            this.listener = new LeapEventListener(this);
+            controller = new Controller();
+            listener = new LeapEventListener(this);
             controller.AddListener(listener);
-            // ============================================== SVM ==============================================
-
-            double[][] inputs =
-                       {
-    new double[] { 11,2,0},
-    new double[] { 7,5,2},
-    new double[] { 5,-2 ,-1 },
-    new double[] { -2,-2 ,-2},
-    new double[] { 0,-2 , 0},
-    new double[] { 5,5 ,-1},
-    //new double[] { 4,4 },
-    //new double[] { -3,4 },
-    //new double[] { -7,4 },
-    //new double[] { -3,3 },
-    //new double[] { -2,4 },
-    //new double[] { -4,4 },
-};
-
-            // Output for each of the inputs
-            int[] outputs = { 1, 1, 0, 0, 0, 1 };
-
-            // Create a new Linear kernel
-            IKernel kernel = new Linear();
-
-            // Create a new Multi-class Support Vector Machine with one input,
-            //  using the linear kernel and for four disjoint classes.
-            var machine = new MulticlassSupportVectorMachine(3, kernel, 2);
-
-            // Create the Multi-class learning algorithm for the machine
-            var teacher = new MulticlassSupportVectorLearning(machine, inputs, outputs);
-
-            // Configure the learning algorithm to use SMO to train the
-            //  underlying SVMs in each of the binary class subproblems.
-            teacher.Algorithm = (svm, classInputs, classOutputs, i, j) =>
-                new SequentialMinimalOptimization(svm, classInputs, classOutputs);
-
-            // Run the learning algorithm   
-            double error = teacher.Run(); // output should be 0
-
-            // Compute the decision output for one of the input vectors
-            int decision = machine.Compute(new double[] { 2, 2, -1 }); // result should be 3
-
-            Console.WriteLine("{0}", decision);
-
-
+           
         }
 
         private void InitializeList()
@@ -96,22 +60,24 @@ namespace SignLanguageRecognition
             connection = new OleDbConnection();
             command = new OleDbCommand();
 
-
-            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Resources\SVMdataset.accdb";
+            SamplesList.Items.Clear();
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\SVMdataset.accdb";
             command.Connection = connection;
 
             string q = "select * from DataSet";
             command.CommandText = q;
             connection.Open();
             dr = command.ExecuteReader();
-
+            int i = 0;
             if (dr.HasRows) // run over the table and put it on the list
             {
                 while (dr.Read())
                 {
-                    SamplesList.Items.Add(dr[1].ToString());
+                    SamplesList.Items.Add(dr[1].ToString()+"-" + dr[0].ToString());
+                    i++;
                 }
             }
+            connection.Close();
         }
                 
         void connectHandler() // set leap gestures when connected
@@ -138,7 +104,7 @@ namespace SignLanguageRecognition
                         break;
                     case "onFrame":
                         if (!this.Disposing)
-                            this.frameListener(this.controller.Frame()); // sends frame to the handler
+                            frameListener(this.controller.Frame()); // sends frame to the handler
                         break;
                 }
             }
@@ -155,40 +121,139 @@ namespace SignLanguageRecognition
             this.Hide();
         }
 
-        private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void SamplesList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            UpdateEnable = false;
 
+            string str = SamplesList.SelectedItem.ToString();
+            int ind = SamplesList.SelectedIndex;
+            string q = "select * from DataSet";
+            command.CommandText = q;
+            connection.Open();
+            dr = command.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(dr);          
 
+            foreach (DataRow row in dt.Rows)
+            {
+                if (ind==0)
+                {
+                    OutputData1.Text = row[2].ToString();
+                    OutputData2.Text = row[3].ToString();
+                    OutputData3.Text = row[4].ToString();
+                    OutputData4.Text = row[5].ToString();
+                    OutputData5.Text = row[6].ToString();
+                }
+
+                ind--;
+            }
+
+            
+                 
+            connection.Close();
+            
 
         }
 
         private void CaptureFrameBtn_Click(object sender, EventArgs e)
         {
 
+            saveSapmle(currentFrame);
 
         }
+
+        private void saveSapmle(Frame fr)
+        {
+            double[] distances = new double[5];
+
+            if (fr == null)
+            {
+                MessageBox.Show("The frame is null.\n Try reconnecting the Leap device", "Application Error",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                distances = LeapEventListener.getDistances(fr);
+
+
+                if (MessageBox.Show("Do you want to save the sample as "+LettersCombo.Text+"?", "Signs DataSet",
+             MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+             == DialogResult.Yes)
+                {
+                    saveSampleToDB(LettersCombo.Text, distances[0], distances[1], distances[2], distances[3], distances[4]);
+                }
+            }
+        }
+
+        private void saveSampleToDB(string lettter,double thumb, double index, double middle, double ring, double pinky)
+        {
+            
+            command = new OleDbCommand();
+           // connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Resources\SVMdataset.accdb";
+            command.Connection = connection;
+            connection.Open();
+            
+
+            try
+            {
+                command.CommandType = CommandType.Text;
+               // string q = "INSERT INTO DataSet(Letter, thumb, index, middle,ring,pinky) VALUES("+ lettter + ","+ thumb +","+ index + "," + middle + "," + ring + "," + pinky + ")";
+                string q = "INSERT INTO DataSet([Letter],[thumb],[index],[middle],[ring],[pinky]) VALUES(@letter,@thumb,@index,@middle,@ring,@pinky)";
+                command.CommandText = q;
+                command.Parameters.AddWithValue("@letter", lettter);
+                command.Parameters.AddWithValue("@thumb", thumb);
+                command.Parameters.AddWithValue("@index", index);
+                command.Parameters.AddWithValue("@middle", middle);
+                command.Parameters.AddWithValue("@ring", ring);
+                command.Parameters.AddWithValue("@pinky", pinky);
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+           
+            connection.Close();
+
+            InitializeList();
+
+        }
+      
 
         private void SignsDatabase_Load(object sender, EventArgs e)
         {
 
         }
 
-        int i = 0;
+        
 
         void frameListener(Frame frame) // the frame handler
         {
+            
+            currentFrame = frame;
+            double[] distances = new double[5];
+       
+
 
             i++;
+
             if (i == 10)
             {
+                if (UpdateEnable == true)
+                {
 
-                OutputData1.Text = frame.Hands[0].PalmPosition.ToString();
-                OutputData2.Text = frame.Hands[0].Fingers[0].TipPosition.ToString();
-                OutputData3.Text = frame.Hands[0].Fingers[1].TipPosition.ToString();
-                OutputData4.Text = frame.Hands[0].Fingers[2].TipPosition.ToString();
-                OutputData5.Text = frame.Hands[0].Fingers[3].TipPosition.ToString();
-                OutputData6.Text = frame.Hands[0].Fingers[4].TipPosition.ToString();
+                    distances = LeapEventListener.getDistances(frame);
+
+                    OutputData1.Text = distances[0].ToString();
+                    OutputData2.Text = distances[1].ToString();
+                    OutputData3.Text = distances[2].ToString();
+                    OutputData4.Text = distances[3].ToString();
+                    OutputData5.Text = distances[4].ToString();
+                }
+
                 i = 0;
+
 
             }
 
@@ -200,6 +265,25 @@ namespace SignLanguageRecognition
         }
 
         private void StartListeningBtn_Click(object sender, EventArgs e)
+        {
+            UpdateEnable = true;
+            
+                  
+
+        }
+
+        private void OutputData1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SignsDatabase_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                 saveSapmle(currentFrame);
+        }
+
+        private void CaptureFrameBtn_Click(object sender, KeyEventArgs e)
         {
 
         }

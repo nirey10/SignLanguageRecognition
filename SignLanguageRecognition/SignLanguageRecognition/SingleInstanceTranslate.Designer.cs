@@ -30,11 +30,11 @@
         {
             this.informationBox = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.OutputData5 = new System.Windows.Forms.Label();
+            this.OutputData4 = new System.Windows.Forms.Label();
+            this.OutputData3 = new System.Windows.Forms.Label();
+            this.OutputData2 = new System.Windows.Forms.Label();
+            this.OutputData1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -45,7 +45,7 @@
             this.TranslateBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.output = new System.Windows.Forms.RichTextBox();
             this.informationBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -54,11 +54,11 @@
             // 
             this.informationBox.BackColor = System.Drawing.Color.Transparent;
             this.informationBox.Controls.Add(this.label14);
-            this.informationBox.Controls.Add(this.label13);
-            this.informationBox.Controls.Add(this.label12);
-            this.informationBox.Controls.Add(this.label11);
-            this.informationBox.Controls.Add(this.label10);
-            this.informationBox.Controls.Add(this.label9);
+            this.informationBox.Controls.Add(this.OutputData5);
+            this.informationBox.Controls.Add(this.OutputData4);
+            this.informationBox.Controls.Add(this.OutputData3);
+            this.informationBox.Controls.Add(this.OutputData2);
+            this.informationBox.Controls.Add(this.OutputData1);
             this.informationBox.Controls.Add(this.label8);
             this.informationBox.Controls.Add(this.label7);
             this.informationBox.Controls.Add(this.label6);
@@ -83,69 +83,68 @@
             this.label14.ForeColor = System.Drawing.Color.SteelBlue;
             this.label14.Location = new System.Drawing.Point(119, 162);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(51, 22);
+            this.label14.Size = new System.Drawing.Size(0, 22);
             this.label14.TabIndex = 15;
-            this.label14.Text = "(0,0,0)";
             // 
-            // label13
+            // OutputData5
             // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label13.Location = new System.Drawing.Point(119, 140);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(51, 22);
-            this.label13.TabIndex = 14;
-            this.label13.Text = "(0,0,0)";
+            this.OutputData5.AutoSize = true;
+            this.OutputData5.BackColor = System.Drawing.Color.Transparent;
+            this.OutputData5.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OutputData5.ForeColor = System.Drawing.Color.SteelBlue;
+            this.OutputData5.Location = new System.Drawing.Point(119, 140);
+            this.OutputData5.Name = "OutputData5";
+            this.OutputData5.Size = new System.Drawing.Size(51, 22);
+            this.OutputData5.TabIndex = 14;
+            this.OutputData5.Text = "(0,0,0)";
             // 
-            // label12
+            // OutputData4
             // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label12.Location = new System.Drawing.Point(119, 118);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(51, 22);
-            this.label12.TabIndex = 13;
-            this.label12.Text = "(0,0,0)";
+            this.OutputData4.AutoSize = true;
+            this.OutputData4.BackColor = System.Drawing.Color.Transparent;
+            this.OutputData4.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OutputData4.ForeColor = System.Drawing.Color.SteelBlue;
+            this.OutputData4.Location = new System.Drawing.Point(119, 118);
+            this.OutputData4.Name = "OutputData4";
+            this.OutputData4.Size = new System.Drawing.Size(51, 22);
+            this.OutputData4.TabIndex = 13;
+            this.OutputData4.Text = "(0,0,0)";
             // 
-            // label11
+            // OutputData3
             // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label11.Location = new System.Drawing.Point(119, 96);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(51, 22);
-            this.label11.TabIndex = 12;
-            this.label11.Text = "(0,0,0)";
+            this.OutputData3.AutoSize = true;
+            this.OutputData3.BackColor = System.Drawing.Color.Transparent;
+            this.OutputData3.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OutputData3.ForeColor = System.Drawing.Color.SteelBlue;
+            this.OutputData3.Location = new System.Drawing.Point(119, 96);
+            this.OutputData3.Name = "OutputData3";
+            this.OutputData3.Size = new System.Drawing.Size(51, 22);
+            this.OutputData3.TabIndex = 12;
+            this.OutputData3.Text = "(0,0,0)";
             // 
-            // label10
+            // OutputData2
             // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label10.Location = new System.Drawing.Point(119, 74);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(51, 22);
-            this.label10.TabIndex = 11;
-            this.label10.Text = "(0,0,0)";
+            this.OutputData2.AutoSize = true;
+            this.OutputData2.BackColor = System.Drawing.Color.Transparent;
+            this.OutputData2.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OutputData2.ForeColor = System.Drawing.Color.SteelBlue;
+            this.OutputData2.Location = new System.Drawing.Point(119, 74);
+            this.OutputData2.Name = "OutputData2";
+            this.OutputData2.Size = new System.Drawing.Size(51, 22);
+            this.OutputData2.TabIndex = 11;
+            this.OutputData2.Text = "(0,0,0)";
             // 
-            // label9
+            // OutputData1
             // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label9.Location = new System.Drawing.Point(119, 52);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(51, 22);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "(0,0,0)";
+            this.OutputData1.AutoSize = true;
+            this.OutputData1.BackColor = System.Drawing.Color.Transparent;
+            this.OutputData1.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OutputData1.ForeColor = System.Drawing.Color.SteelBlue;
+            this.OutputData1.Location = new System.Drawing.Point(119, 52);
+            this.OutputData1.Name = "OutputData1";
+            this.OutputData1.Size = new System.Drawing.Size(51, 22);
+            this.OutputData1.TabIndex = 10;
+            this.OutputData1.Text = "(0,0,0)";
             // 
             // label8
             // 
@@ -155,9 +154,8 @@
             this.label8.ForeColor = System.Drawing.Color.Salmon;
             this.label8.Location = new System.Drawing.Point(6, 162);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(50, 22);
+            this.label8.Size = new System.Drawing.Size(0, 22);
             this.label8.TabIndex = 9;
-            this.label8.Text = "Palm:";
             // 
             // label7
             // 
@@ -229,6 +227,7 @@
             this.BackToMenuBtn.TabIndex = 21;
             this.BackToMenuBtn.Text = "Back to Menu";
             this.BackToMenuBtn.UseVisualStyleBackColor = true;
+            this.BackToMenuBtn.Click += new System.EventHandler(this.BackToMenuBtn_Click);
             // 
             // TranslateBtn
             // 
@@ -242,6 +241,7 @@
             this.TranslateBtn.Size = new System.Drawing.Size(50, 50);
             this.TranslateBtn.TabIndex = 19;
             this.TranslateBtn.UseVisualStyleBackColor = false;
+            this.TranslateBtn.Click += new System.EventHandler(this.TranslateBtn_Click);
             // 
             // label2
             // 
@@ -258,7 +258,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.richTextBox1);
+            this.groupBox1.Controls.Add(this.output);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.groupBox1.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.SteelBlue;
@@ -269,15 +269,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Translation";
             // 
-            // richTextBox1
+            // output
             // 
-            this.richTextBox1.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.ForeColor = System.Drawing.Color.Salmon;
-            this.richTextBox1.Location = new System.Drawing.Point(6, 52);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(180, 148);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            this.output.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.output.ForeColor = System.Drawing.Color.Salmon;
+            this.output.Location = new System.Drawing.Point(6, 52);
+            this.output.Name = "output";
+            this.output.Size = new System.Drawing.Size(180, 148);
+            this.output.TabIndex = 0;
+            this.output.Text = "";
             // 
             // SingleInstanceTranslate
             // 
@@ -292,6 +292,7 @@
             this.Controls.Add(this.label2);
             this.Name = "SingleInstanceTranslate";
             this.Text = "SingleInstanceTranslate";
+            this.Load += new System.EventHandler(this.SingleInstanceTranslate_Load);
             this.informationBox.ResumeLayout(false);
             this.informationBox.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -304,11 +305,11 @@
 
         private System.Windows.Forms.GroupBox informationBox;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label OutputData5;
+        private System.Windows.Forms.Label OutputData4;
+        private System.Windows.Forms.Label OutputData3;
+        private System.Windows.Forms.Label OutputData2;
+        private System.Windows.Forms.Label OutputData1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -319,6 +320,6 @@
         private System.Windows.Forms.Button TranslateBtn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox output;
     }
 }

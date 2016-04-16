@@ -108,5 +108,12 @@ namespace SignLanguageRecognition
             ConnectionLable.ForeColor = Color.Crimson;
         }
 
+        private void SingleInstancesTranslatingBtn_Click(object sender, EventArgs e)
+        {
+            SingleInstanceTranslate singleInstances = new SingleInstanceTranslate();
+
+            singleInstances.Show();
+            this.Hide();
+        }
     }
 }

@@ -76,12 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ILeapEventDelegate.cs" />
-    <Compile Include="LeapController.cs" />
-    <Compile Include="LeapControllerInterface.cs" />
     <Compile Include="LeapEventListener.cs" />
-    <Compile Include="LForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,7 +149,6 @@
     <None Include="Resources\delete-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="License-LGPL.txt" />
     <None Include="Resources\Trabslate_icon.png" />
     <None Include="Resources\Delete_icon11.jpg" />
     <None Include="Resources\Delete_icon1.jpg" />

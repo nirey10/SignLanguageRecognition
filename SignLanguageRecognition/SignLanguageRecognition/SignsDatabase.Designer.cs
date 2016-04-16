@@ -37,13 +37,13 @@
             this.BackToMenuBtn = new System.Windows.Forms.Button();
             this.DeleteSampleBtn = new System.Windows.Forms.Button();
             this.informationBox = new System.Windows.Forms.GroupBox();
-            this.OutputData6 = new System.Windows.Forms.Label();
+            this.LettersCombo = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.OutputData5 = new System.Windows.Forms.Label();
             this.OutputData4 = new System.Windows.Forms.Label();
             this.OutputData3 = new System.Windows.Forms.Label();
             this.OutputData2 = new System.Windows.Forms.Label();
             this.OutputData1 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -86,9 +86,10 @@
             this.SamplesList.Location = new System.Drawing.Point(76, 158);
             this.SamplesList.Name = "SamplesList";
             this.SamplesList.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SamplesList.Size = new System.Drawing.Size(117, 179);
+            this.SamplesList.Size = new System.Drawing.Size(117, 204);
             this.SamplesList.TabIndex = 11;
-            this.SamplesList.SelectedIndexChanged += new System.EventHandler(this.ListBox1_SelectedIndexChanged);
+            this.SamplesList.SelectedIndexChanged += new System.EventHandler(this.SamplesList_SelectedIndexChanged);
+            this.SamplesList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SignsDatabase_KeyDown);
             // 
             // CaptureFrameBtn
             // 
@@ -97,12 +98,13 @@
             this.CaptureFrameBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CaptureFrameBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CaptureFrameBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.CaptureFrameBtn.Location = new System.Drawing.Point(464, 354);
+            this.CaptureFrameBtn.Location = new System.Drawing.Point(406, 401);
             this.CaptureFrameBtn.Name = "CaptureFrameBtn";
             this.CaptureFrameBtn.Size = new System.Drawing.Size(50, 50);
             this.CaptureFrameBtn.TabIndex = 13;
             this.CaptureFrameBtn.UseVisualStyleBackColor = false;
             this.CaptureFrameBtn.Click += new System.EventHandler(this.CaptureFrameBtn_Click);
+            this.CaptureFrameBtn.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SignsDatabase_KeyDown);
             // 
             // StartListeningBtn
             // 
@@ -111,25 +113,27 @@
             this.StartListeningBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.StartListeningBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.StartListeningBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.StartListeningBtn.Location = new System.Drawing.Point(309, 354);
+            this.StartListeningBtn.Location = new System.Drawing.Point(282, 401);
             this.StartListeningBtn.Name = "StartListeningBtn";
             this.StartListeningBtn.Size = new System.Drawing.Size(50, 50);
             this.StartListeningBtn.TabIndex = 14;
             this.StartListeningBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.StartListeningBtn.UseVisualStyleBackColor = false;
             this.StartListeningBtn.Click += new System.EventHandler(this.StartListeningBtn_Click);
+            this.StartListeningBtn.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SignsDatabase_KeyDown);
             // 
             // BackToMenuBtn
             // 
             this.BackToMenuBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F);
             this.BackToMenuBtn.ForeColor = System.Drawing.Color.SteelBlue;
-            this.BackToMenuBtn.Location = new System.Drawing.Point(76, 374);
+            this.BackToMenuBtn.Location = new System.Drawing.Point(76, 419);
             this.BackToMenuBtn.Name = "BackToMenuBtn";
             this.BackToMenuBtn.Size = new System.Drawing.Size(117, 32);
             this.BackToMenuBtn.TabIndex = 15;
             this.BackToMenuBtn.Text = "Back to Menu";
             this.BackToMenuBtn.UseVisualStyleBackColor = true;
             this.BackToMenuBtn.Click += new System.EventHandler(this.BackToMenuBtn_Click);
+            this.BackToMenuBtn.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SignsDatabase_KeyDown);
             // 
             // DeleteSampleBtn
             // 
@@ -138,22 +142,23 @@
             this.DeleteSampleBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.DeleteSampleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteSampleBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.DeleteSampleBtn.Location = new System.Drawing.Point(47, 313);
+            this.DeleteSampleBtn.Location = new System.Drawing.Point(47, 339);
             this.DeleteSampleBtn.Name = "DeleteSampleBtn";
             this.DeleteSampleBtn.Size = new System.Drawing.Size(23, 24);
             this.DeleteSampleBtn.TabIndex = 16;
             this.DeleteSampleBtn.UseVisualStyleBackColor = false;
+            this.DeleteSampleBtn.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SignsDatabase_KeyDown);
             // 
             // informationBox
             // 
             this.informationBox.BackColor = System.Drawing.Color.Transparent;
-            this.informationBox.Controls.Add(this.OutputData6);
+            this.informationBox.Controls.Add(this.LettersCombo);
+            this.informationBox.Controls.Add(this.label9);
             this.informationBox.Controls.Add(this.OutputData5);
             this.informationBox.Controls.Add(this.OutputData4);
             this.informationBox.Controls.Add(this.OutputData3);
             this.informationBox.Controls.Add(this.OutputData2);
             this.informationBox.Controls.Add(this.OutputData1);
-            this.informationBox.Controls.Add(this.label8);
             this.informationBox.Controls.Add(this.label7);
             this.informationBox.Controls.Add(this.label6);
             this.informationBox.Controls.Add(this.label5);
@@ -162,25 +167,40 @@
             this.informationBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.informationBox.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.informationBox.ForeColor = System.Drawing.Color.SteelBlue;
-            this.informationBox.Location = new System.Drawing.Point(303, 113);
+            this.informationBox.Location = new System.Drawing.Point(276, 113);
             this.informationBox.Name = "informationBox";
-            this.informationBox.Size = new System.Drawing.Size(322, 224);
+            this.informationBox.Size = new System.Drawing.Size(322, 282);
             this.informationBox.TabIndex = 17;
             this.informationBox.TabStop = false;
             this.informationBox.Text = "Coordinates Information";
             this.informationBox.Enter += new System.EventHandler(this.informationBox_Enter);
             // 
-            // OutputData6
+            // LettersCombo
             // 
-            this.OutputData6.AutoSize = true;
-            this.OutputData6.BackColor = System.Drawing.Color.Transparent;
-            this.OutputData6.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OutputData6.ForeColor = System.Drawing.Color.SteelBlue;
-            this.OutputData6.Location = new System.Drawing.Point(87, 162);
-            this.OutputData6.Name = "OutputData6";
-            this.OutputData6.Size = new System.Drawing.Size(51, 22);
-            this.OutputData6.TabIndex = 15;
-            this.OutputData6.Text = "(0,0,0)";
+            this.LettersCombo.FormattingEnabled = true;
+            this.LettersCombo.Items.AddRange(new object[] {
+            "a",
+            "b",
+            "c",
+            "d"});
+            this.LettersCombo.Location = new System.Drawing.Point(91, 216);
+            this.LettersCombo.Name = "LettersCombo";
+            this.LettersCombo.Size = new System.Drawing.Size(79, 33);
+            this.LettersCombo.TabIndex = 19;
+            this.LettersCombo.Text = "a";
+            this.LettersCombo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CaptureFrameBtn_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic);
+            this.label9.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label9.Location = new System.Drawing.Point(6, 224);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(58, 25);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "Letter";
             // 
             // OutputData5
             // 
@@ -241,18 +261,7 @@
             this.OutputData1.Size = new System.Drawing.Size(51, 22);
             this.OutputData1.TabIndex = 10;
             this.OutputData1.Text = "(0,0,0)";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Salmon;
-            this.label8.Location = new System.Drawing.Point(6, 162);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(50, 22);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "Palm:";
+            this.OutputData1.Click += new System.EventHandler(this.OutputData1_Click);
             // 
             // label7
             // 
@@ -262,9 +271,9 @@
             this.label7.ForeColor = System.Drawing.Color.Salmon;
             this.label7.Location = new System.Drawing.Point(6, 140);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(50, 22);
+            this.label7.Size = new System.Drawing.Size(55, 22);
             this.label7.TabIndex = 8;
-            this.label7.Text = "Palm:";
+            this.label7.Text = "Pinky:";
             // 
             // label6
             // 
@@ -274,9 +283,9 @@
             this.label6.ForeColor = System.Drawing.Color.Salmon;
             this.label6.Location = new System.Drawing.Point(6, 118);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 22);
+            this.label6.Size = new System.Drawing.Size(48, 22);
             this.label6.TabIndex = 7;
-            this.label6.Text = "Palm:";
+            this.label6.Text = "Ring:";
             // 
             // label5
             // 
@@ -286,9 +295,9 @@
             this.label5.ForeColor = System.Drawing.Color.Salmon;
             this.label5.Location = new System.Drawing.Point(6, 96);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 22);
+            this.label5.Size = new System.Drawing.Size(64, 22);
             this.label5.TabIndex = 6;
-            this.label5.Text = "Palm:";
+            this.label5.Text = "Middle:";
             // 
             // label4
             // 
@@ -298,9 +307,9 @@
             this.label4.ForeColor = System.Drawing.Color.Salmon;
             this.label4.Location = new System.Drawing.Point(6, 74);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 22);
+            this.label4.Size = new System.Drawing.Size(55, 22);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Palm:";
+            this.label4.Text = "Index:";
             // 
             // label3
             // 
@@ -310,16 +319,16 @@
             this.label3.ForeColor = System.Drawing.Color.Salmon;
             this.label3.Location = new System.Drawing.Point(6, 52);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 22);
+            this.label3.Size = new System.Drawing.Size(62, 22);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Palm:";
+            this.label3.Text = "Thumb:";
             // 
             // SignsDatabase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SignLanguageRecognition.Properties.Resources.images;
-            this.ClientSize = new System.Drawing.Size(667, 430);
+            this.ClientSize = new System.Drawing.Size(655, 463);
             this.Controls.Add(this.informationBox);
             this.Controls.Add(this.DeleteSampleBtn);
             this.Controls.Add(this.BackToMenuBtn);
@@ -331,6 +340,7 @@
             this.Name = "SignsDatabase";
             this.Text = "Sign Language Database";
             this.Load += new System.EventHandler(this.SignsDatabase_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SignsDatabase_KeyDown);
             this.informationBox.ResumeLayout(false);
             this.informationBox.PerformLayout();
             this.ResumeLayout(false);
@@ -348,17 +358,17 @@
         private System.Windows.Forms.Button BackToMenuBtn;
         private System.Windows.Forms.Button DeleteSampleBtn;
         private System.Windows.Forms.GroupBox informationBox;
-        private System.Windows.Forms.Label OutputData6;
         private System.Windows.Forms.Label OutputData5;
         private System.Windows.Forms.Label OutputData4;
         private System.Windows.Forms.Label OutputData3;
         private System.Windows.Forms.Label OutputData2;
         private System.Windows.Forms.Label OutputData1;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox LettersCombo;
     }
 }
