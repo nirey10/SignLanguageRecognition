@@ -31,6 +31,8 @@ namespace SignLanguageRecognition
         private LeapEventListener listener;
         delegate void LeapEventDelegate(string EventName);
 
+        int[] indexList;
+
 
         Frame currentFrame;// saves current frame
 
@@ -68,11 +70,19 @@ namespace SignLanguageRecognition
             command.CommandText = q;
             connection.Open();
             dr = command.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(dr);
+            indexList = new int[dt.Rows.Count];
+
+            dr = command.ExecuteReader();
+
+
             int i = 0;
             if (dr.HasRows) // run over the table and put it on the list
             {
                 while (dr.Read())
                 {
+                    indexList[i] = Convert.ToInt32(dr[0]);
                     SamplesList.Items.Add(dr[1].ToString()+"-" + dr[0].ToString());
                     i++;
                 }
@@ -285,6 +295,39 @@ namespace SignLanguageRecognition
 
         private void CaptureFrameBtn_Click(object sender, KeyEventArgs e)
         {
+
+        }
+
+        private void DeleteSampleBtn_Click(object sender, EventArgs e)
+        {
+            int idx = SamplesList.SelectedIndex;
+
+            command = new OleDbCommand();
+            // connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Resources\SVMdataset.accdb";
+            command.Connection = connection;
+            connection.Open();
+
+
+            try
+            {
+                command.CommandType = CommandType.Text;
+                // string q = "INSERT INTO DataSet(Letter, thumb, index, middle,ring,pinky) VALUES("+ lettter + ","+ thumb +","+ index + "," + middle + "," + ring + "," + pinky + ")";
+                string q = "Delete from DataSet where indexer = "+indexList[idx];
+                command.CommandText = q;
+                
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+
+            connection.Close();
+
+            InitializeList();
+
+
 
         }
     }

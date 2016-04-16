@@ -115,12 +115,7 @@ namespace SignLanguageRecognition
             command = new OleDbCommand();
             double thumb, index, middle, ring, pinky;
 
-            int svmClass = 0;
-
-            
-            
-
-
+            int svmClass = 0;                 
 
             connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\SVMdataset.accdb";
             command.Connection = connection;

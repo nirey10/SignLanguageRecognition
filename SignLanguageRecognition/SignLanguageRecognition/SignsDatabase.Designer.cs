@@ -147,6 +147,7 @@
             this.DeleteSampleBtn.Size = new System.Drawing.Size(23, 24);
             this.DeleteSampleBtn.TabIndex = 16;
             this.DeleteSampleBtn.UseVisualStyleBackColor = false;
+            this.DeleteSampleBtn.Click += new System.EventHandler(this.DeleteSampleBtn_Click);
             this.DeleteSampleBtn.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SignsDatabase_KeyDown);
             // 
             // informationBox
