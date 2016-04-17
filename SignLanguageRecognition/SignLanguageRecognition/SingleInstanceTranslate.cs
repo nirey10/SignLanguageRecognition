@@ -197,10 +197,6 @@ namespace SignLanguageRecognition
             double[] distances = new double[5];
             distances = LeapEventListener.getDistances(currentFrame);
 
-
-
-
-
             int decision = machine.Compute(distances); // result should be 3
             output.Text = decision.ToString();
 
