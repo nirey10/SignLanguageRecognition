@@ -12,6 +12,7 @@ namespace SignLanguageRecognition
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
+        //ikyf
         static void Main()
         {
             Application.EnableVisualStyles();
