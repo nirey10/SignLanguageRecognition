@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.informationBox = new System.Windows.Forms.GroupBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.OutputData5 = new System.Windows.Forms.Label();
             this.OutputData4 = new System.Windows.Forms.Label();
             this.OutputData3 = new System.Windows.Forms.Label();
@@ -37,15 +36,16 @@
             this.OutputData1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.BackToMenuBtn = new System.Windows.Forms.Button();
             this.TranslateBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.output = new System.Windows.Forms.RichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.informationBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -53,7 +53,11 @@
             // informationBox
             // 
             this.informationBox.BackColor = System.Drawing.Color.Transparent;
-            this.informationBox.Controls.Add(this.label14);
+            this.informationBox.Controls.Add(this.label1);
+            this.informationBox.Controls.Add(this.label6);
+            this.informationBox.Controls.Add(this.label5);
+            this.informationBox.Controls.Add(this.label4);
+            this.informationBox.Controls.Add(this.label3);
             this.informationBox.Controls.Add(this.OutputData5);
             this.informationBox.Controls.Add(this.OutputData4);
             this.informationBox.Controls.Add(this.OutputData3);
@@ -61,10 +65,6 @@
             this.informationBox.Controls.Add(this.OutputData1);
             this.informationBox.Controls.Add(this.label8);
             this.informationBox.Controls.Add(this.label7);
-            this.informationBox.Controls.Add(this.label6);
-            this.informationBox.Controls.Add(this.label5);
-            this.informationBox.Controls.Add(this.label4);
-            this.informationBox.Controls.Add(this.label3);
             this.informationBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.informationBox.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.informationBox.ForeColor = System.Drawing.Color.SteelBlue;
@@ -74,17 +74,6 @@
             this.informationBox.TabIndex = 22;
             this.informationBox.TabStop = false;
             this.informationBox.Text = "Coordinates Information";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label14.Location = new System.Drawing.Point(119, 162);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(0, 22);
-            this.label14.TabIndex = 15;
             // 
             // OutputData5
             // 
@@ -165,62 +154,13 @@
             this.label7.ForeColor = System.Drawing.Color.Salmon;
             this.label7.Location = new System.Drawing.Point(6, 140);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(50, 22);
+            this.label7.Size = new System.Drawing.Size(0, 22);
             this.label7.TabIndex = 8;
-            this.label7.Text = "Palm:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Salmon;
-            this.label6.Location = new System.Drawing.Point(6, 118);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 22);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Palm:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Salmon;
-            this.label5.Location = new System.Drawing.Point(6, 96);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 22);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Palm:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Salmon;
-            this.label4.Location = new System.Drawing.Point(6, 74);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 22);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Palm:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Salmon;
-            this.label3.Location = new System.Drawing.Point(6, 52);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 22);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Palm:";
             // 
             // BackToMenuBtn
             // 
             this.BackToMenuBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F);
-            this.BackToMenuBtn.ForeColor = System.Drawing.Color.Salmon;
+            this.BackToMenuBtn.ForeColor = System.Drawing.Color.SteelBlue;
             this.BackToMenuBtn.Location = new System.Drawing.Point(22, 319);
             this.BackToMenuBtn.Name = "BackToMenuBtn";
             this.BackToMenuBtn.Size = new System.Drawing.Size(117, 32);
@@ -248,7 +188,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Monotype Corsiva", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Salmon;
+            this.label2.ForeColor = System.Drawing.Color.SteelBlue;
             this.label2.Location = new System.Drawing.Point(69, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(316, 36);
@@ -279,6 +219,66 @@
             this.output.TabIndex = 0;
             this.output.Text = "";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Salmon;
+            this.label1.Location = new System.Drawing.Point(6, 143);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 22);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Pinky:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Salmon;
+            this.label6.Location = new System.Drawing.Point(6, 121);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(48, 22);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Ring:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Salmon;
+            this.label5.Location = new System.Drawing.Point(6, 99);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 22);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Middle:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Salmon;
+            this.label4.Location = new System.Drawing.Point(6, 77);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(55, 22);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Index:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Salmon;
+            this.label3.Location = new System.Drawing.Point(6, 55);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(62, 22);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Thumb:";
+            // 
             // SingleInstanceTranslate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -304,7 +304,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox informationBox;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label OutputData5;
         private System.Windows.Forms.Label OutputData4;
         private System.Windows.Forms.Label OutputData3;
@@ -312,14 +311,15 @@
         private System.Windows.Forms.Label OutputData1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button BackToMenuBtn;
         private System.Windows.Forms.Button TranslateBtn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RichTextBox output;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
     }
 }

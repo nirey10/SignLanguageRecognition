@@ -180,15 +180,15 @@
             // 
             this.LettersCombo.FormattingEnabled = true;
             this.LettersCombo.Items.AddRange(new object[] {
-            "a",
-            "b",
-            "c",
-            "d"});
+            "א",
+            "ב",
+            "ג",
+            "ד"});
             this.LettersCombo.Location = new System.Drawing.Point(91, 216);
             this.LettersCombo.Name = "LettersCombo";
             this.LettersCombo.Size = new System.Drawing.Size(79, 33);
             this.LettersCombo.TabIndex = 19;
-            this.LettersCombo.Text = "a";
+            this.LettersCombo.Text = "א";
             this.LettersCombo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CaptureFrameBtn_Click);
             // 
             // label9

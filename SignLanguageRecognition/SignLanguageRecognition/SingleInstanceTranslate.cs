@@ -28,7 +28,7 @@ namespace SignLanguageRecognition
         delegate void LeapEventDelegate(string EventName);
 
 
-
+        int numOfClasses = 0; // saves the number of calsses/letters
         double[][] inputs;
         // Output for each of the inputs
         int[] outputs;
@@ -136,7 +136,7 @@ namespace SignLanguageRecognition
                 while (dr.Read())
                 {
                     char c = Convert.ToChar(dr[1]);
-                    svmClass = c - 'a'; // set the svm class a-0 , b-1 , c-2 , d-3
+                    svmClass = c - 'א'; // set the svm class a-0 , b-1 , c-2 , d-3
             
 
 
@@ -156,7 +156,19 @@ namespace SignLanguageRecognition
             connection.Close();
 
 
-           
+
+
+            //get from DB the number of classes
+            command.Connection = connection;
+            q = "select Distinct DataSet.Letter from DataSet";
+            command.CommandText = q;
+            connection.Open();
+            dr = command.ExecuteReader();
+            dt = new DataTable();
+            dt.Load(dr);
+            numOfClasses = dt.Rows.Count;
+            connection.Close();
+
 
 
         }
@@ -176,12 +188,13 @@ namespace SignLanguageRecognition
 
         private void TranslateBtn_Click(object sender, EventArgs e)
         {
+           
             // Create a new Linear kernel
             IKernel kernel = new Linear();
-
+       
             // Create a new Multi-class Support Vector Machine with one input,
             //  using the linear kernel and for four disjoint classes.
-            var machine = new MulticlassSupportVectorMachine(5, kernel, 2);
+            var machine = new MulticlassSupportVectorMachine(5, kernel, numOfClasses);
 
             // Create the Multi-class learning algorithm for the machine
             var teacher = new MulticlassSupportVectorLearning(machine, inputs, outputs);
@@ -198,7 +211,7 @@ namespace SignLanguageRecognition
             distances = LeapEventListener.getDistances(currentFrame);
 
             int decision = machine.Compute(distances); // result should be 3
-            output.Text = decision.ToString();
+            output.Text = output.Text + Convert.ToChar(decision + 'א');
 
         }
 
