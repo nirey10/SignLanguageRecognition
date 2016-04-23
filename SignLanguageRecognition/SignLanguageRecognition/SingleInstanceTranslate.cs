@@ -56,6 +56,26 @@ namespace SignLanguageRecognition
             this.controller.Config.SetFloat("Gesture.Circle.MinRadius", 40.0f);
             this.controller.EnableGesture(Gesture.GestureType.TYPE_SWIPE);
 
+
+        }
+        protected override void Dispose(bool disposing)
+        {
+            try
+            {
+                if (disposing)
+                {
+                    if (components != null)
+                    {
+                        components.Dispose();
+                    }
+                    this.controller.RemoveListener(this.listener);
+                    this.controller.Dispose();
+                }
+            }
+            finally
+            {
+                base.Dispose(disposing);
+            }
         }
         public void LeapEventNotification(string EventName) // event notification handler
         {
@@ -136,9 +156,9 @@ namespace SignLanguageRecognition
                 while (dr.Read())
                 {
                     char c = Convert.ToChar(dr[1]);
-                    svmClass = c - 'א'; // set the svm class a-0 , b-1 , c-2 , d-3
-            
+                    
 
+                    svmClass = Char2SvmClass.char2class(c);//static method that converts the char to a class ;
 
                     thumb = Convert.ToDouble(dr[2]);
                     index = Convert.ToDouble(dr[3]);
@@ -166,7 +186,7 @@ namespace SignLanguageRecognition
             dr = command.ExecuteReader();
             dt = new DataTable();
             dt.Load(dr);
-            numOfClasses = dt.Rows.Count;
+            numOfClasses = dt.Rows.Count ; 
             connection.Close();
 
 
@@ -210,8 +230,8 @@ namespace SignLanguageRecognition
             double[] distances = new double[5];
             distances = LeapEventListener.getDistances(currentFrame);
 
-            int decision = machine.Compute(distances); // result should be 3
-            output.Text = output.Text + Convert.ToChar(decision + 'א');
+            int decision = machine.Compute(distances); //svm AI 
+            output.Text = output.Text + Char2SvmClass.class2svm(decision);
 
         }
 

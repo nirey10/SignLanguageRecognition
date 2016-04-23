@@ -73,7 +73,29 @@ namespace SignLanguageRecognition
                 this.BeginInvoke(new LeapEventDelegate(LeapEventNotification), new object[] { EventName });
             }
         }
-
+        /// <summary>
+        /// This method closes the form . 
+        /// </summary>
+        /// <param name="disposing"></param>
+        protected override void Dispose(bool disposing)
+        {
+            try
+            {
+                if (disposing)
+                {
+                    if (components != null)
+                    {
+                        components.Dispose();
+                    }
+                    this.controller.RemoveListener(this.listener);
+                    this.controller.Dispose();
+                }
+            }
+            finally
+            {
+                base.Dispose(disposing);
+            }
+        }
 
         private void SignDatabaseBtn_Click(object sender, EventArgs e)
         {
@@ -113,6 +135,7 @@ namespace SignLanguageRecognition
             SingleInstanceTranslate singleInstances = new SingleInstanceTranslate();
 
             singleInstances.Show();
+           
             this.Hide();
         }
     }

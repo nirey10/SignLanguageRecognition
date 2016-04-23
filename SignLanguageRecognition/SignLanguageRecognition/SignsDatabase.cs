@@ -89,6 +89,7 @@ namespace SignLanguageRecognition
             }
             connection.Close();
         }
+
                 
         void connectHandler() // set leap gestures when connected
         {
