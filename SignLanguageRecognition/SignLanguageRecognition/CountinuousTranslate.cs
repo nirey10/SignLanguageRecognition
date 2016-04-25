@@ -28,5 +28,20 @@ namespace SignLanguageRecognition
         {
 
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void StartListeningBtn_Click(object sender, EventArgs e)
+        {
+            StatusGif.Enabled = true;
+        }
+
+        private void StopListeningBtn_Click(object sender, EventArgs e)
+        {
+            StatusGif.Enabled = false;
+        }
     }
 }
