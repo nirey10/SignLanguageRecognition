@@ -29,11 +29,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CountinuousTranslate));
             this.BackToMenuBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.StartListeningBtn = new System.Windows.Forms.Button();
-            this.StopListeningBtn = new System.Windows.Forms.Button();
             this.output = new System.Windows.Forms.RichTextBox();
             this.informationBox = new System.Windows.Forms.GroupBox();
             this.OutputData5 = new System.Windows.Forms.Label();
@@ -46,17 +43,15 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.StatusGif = new System.Windows.Forms.PictureBox();
-            this.TranslationLabel = new System.Windows.Forms.Label();
+            this.clearBtn = new System.Windows.Forms.Button();
             this.informationBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.StatusGif)).BeginInit();
             this.SuspendLayout();
             // 
             // BackToMenuBtn
             // 
             this.BackToMenuBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.BackToMenuBtn.ForeColor = System.Drawing.Color.SteelBlue;
-            this.BackToMenuBtn.Location = new System.Drawing.Point(22, 372);
+            this.BackToMenuBtn.Location = new System.Drawing.Point(22, 322);
             this.BackToMenuBtn.Name = "BackToMenuBtn";
             this.BackToMenuBtn.Size = new System.Drawing.Size(117, 32);
             this.BackToMenuBtn.TabIndex = 20;
@@ -77,41 +72,11 @@
             this.label2.Text = "Continuous Translation";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // StartListeningBtn
-            // 
-            this.StartListeningBtn.BackColor = System.Drawing.Color.Transparent;
-            this.StartListeningBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("StartListeningBtn.BackgroundImage")));
-            this.StartListeningBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.StartListeningBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.StartListeningBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.StartListeningBtn.Location = new System.Drawing.Point(344, 354);
-            this.StartListeningBtn.Name = "StartListeningBtn";
-            this.StartListeningBtn.Size = new System.Drawing.Size(50, 50);
-            this.StartListeningBtn.TabIndex = 22;
-            this.StartListeningBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.StartListeningBtn.UseVisualStyleBackColor = false;
-            this.StartListeningBtn.Click += new System.EventHandler(this.StartListeningBtn_Click);
-            // 
-            // StopListeningBtn
-            // 
-            this.StopListeningBtn.BackColor = System.Drawing.Color.Transparent;
-            this.StopListeningBtn.BackgroundImage = global::SignLanguageRecognition.Properties.Resources.Stop_icon21;
-            this.StopListeningBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.StopListeningBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.StopListeningBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.StopListeningBtn.Location = new System.Drawing.Point(460, 354);
-            this.StopListeningBtn.Name = "StopListeningBtn";
-            this.StopListeningBtn.Size = new System.Drawing.Size(50, 50);
-            this.StopListeningBtn.TabIndex = 23;
-            this.StopListeningBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.StopListeningBtn.UseVisualStyleBackColor = false;
-            this.StopListeningBtn.Click += new System.EventHandler(this.StopListeningBtn_Click);
-            // 
             // output
             // 
             this.output.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.output.ForeColor = System.Drawing.Color.Salmon;
-            this.output.Location = new System.Drawing.Point(309, 114);
+            this.output.Location = new System.Drawing.Point(291, 114);
             this.output.Name = "output";
             this.output.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.output.Size = new System.Drawing.Size(228, 147);
@@ -139,7 +104,7 @@
             this.informationBox.Size = new System.Drawing.Size(233, 187);
             this.informationBox.TabIndex = 25;
             this.informationBox.TabStop = false;
-            this.informationBox.Text = "Coordinates Information";
+            this.informationBox.Text = "Velocity Information";
             // 
             // OutputData5
             // 
@@ -261,50 +226,34 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Thumb:";
             // 
-            // StatusGif
+            // clearBtn
             // 
-            this.StatusGif.BackColor = System.Drawing.Color.Transparent;
-            this.StatusGif.Enabled = false;
-            this.StatusGif.Image = global::SignLanguageRecognition.Properties.Resources.Loading11;
-            this.StatusGif.Location = new System.Drawing.Point(457, 276);
-            this.StatusGif.Name = "StatusGif";
-            this.StatusGif.Size = new System.Drawing.Size(53, 48);
-            this.StatusGif.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.StatusGif.TabIndex = 26;
-            this.StatusGif.TabStop = false;
-            // 
-            // TranslationLabel
-            // 
-            this.TranslationLabel.AutoSize = true;
-            this.TranslationLabel.BackColor = System.Drawing.Color.Transparent;
-            this.TranslationLabel.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TranslationLabel.ForeColor = System.Drawing.Color.Salmon;
-            this.TranslationLabel.Location = new System.Drawing.Point(305, 291);
-            this.TranslationLabel.Name = "TranslationLabel";
-            this.TranslationLabel.Size = new System.Drawing.Size(143, 22);
-            this.TranslationLabel.TabIndex = 27;
-            this.TranslationLabel.Text = "Translation Status:";
+            this.clearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.clearBtn.ForeColor = System.Drawing.Color.SteelBlue;
+            this.clearBtn.Location = new System.Drawing.Point(346, 322);
+            this.clearBtn.Name = "clearBtn";
+            this.clearBtn.Size = new System.Drawing.Size(117, 32);
+            this.clearBtn.TabIndex = 26;
+            this.clearBtn.Text = "Clear Text";
+            this.clearBtn.UseVisualStyleBackColor = true;
+            this.clearBtn.Click += new System.EventHandler(this.clearBtn_Click);
             // 
             // CountinuousTranslate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SignLanguageRecognition.Properties.Resources.images;
-            this.ClientSize = new System.Drawing.Size(569, 434);
-            this.Controls.Add(this.TranslationLabel);
-            this.Controls.Add(this.StatusGif);
+            this.ClientSize = new System.Drawing.Size(558, 379);
+            this.Controls.Add(this.clearBtn);
             this.Controls.Add(this.informationBox);
             this.Controls.Add(this.output);
-            this.Controls.Add(this.StopListeningBtn);
-            this.Controls.Add(this.StartListeningBtn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.BackToMenuBtn);
             this.Name = "CountinuousTranslate";
-            this.Text = "Sign Recognition";
+            this.Text = "Continouos Translation";
             this.Load += new System.EventHandler(this.CountinuousTranslate_Load);
             this.informationBox.ResumeLayout(false);
             this.informationBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.StatusGif)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -313,8 +262,6 @@
         #endregion
         private System.Windows.Forms.Button BackToMenuBtn;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button StartListeningBtn;
-        private System.Windows.Forms.Button StopListeningBtn;
         private System.Windows.Forms.RichTextBox output;
         private System.Windows.Forms.GroupBox informationBox;
         private System.Windows.Forms.Label OutputData5;
@@ -327,7 +274,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.PictureBox StatusGif;
-        private System.Windows.Forms.Label TranslationLabel;
+        private System.Windows.Forms.Button clearBtn;
     }
 }

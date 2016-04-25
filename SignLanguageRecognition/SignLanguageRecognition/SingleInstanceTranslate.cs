@@ -208,30 +208,40 @@ namespace SignLanguageRecognition
 
         private void TranslateBtn_Click(object sender, EventArgs e)
         {
-           
-            // Create a new Linear kernel
-            IKernel kernel = new Linear();
-       
-            // Create a new Multi-class Support Vector Machine with one input,
-            //  using the linear kernel and for four disjoint classes.
-            var machine = new MulticlassSupportVectorMachine(5, kernel, numOfClasses);
-
-            // Create the Multi-class learning algorithm for the machine
-            var teacher = new MulticlassSupportVectorLearning(machine, inputs, outputs);
-
-            // Configure the learning algorithm to use SMO to train the
-            //  underlying SVMs in each of the binary class subproblems.
-            teacher.Algorithm = (svm, classInputs, classOutputs, i, j) =>
-                 new SequentialMinimalOptimization(svm, classInputs, classOutputs);
-
-            // Run the learning algorithm   
-            double error = teacher.Run(); // output should be 0
 
             double[] distances = new double[5];
             distances = LeapEventListener.getDistances(currentFrame);
 
-            int decision = machine.Compute(distances); //svm AI 
-            output.Text = output.Text + Char2SvmClass.class2svm(decision);
+            if (LeapEventListener.isZeros(distances) == true)
+            {
+                MessageBox.Show("The frame is null.\n Try reconnecting the Leap device", "Application Error",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                // Create a new Linear kernel
+                IKernel kernel = new Linear();
+
+                // Create a new Multi-class Support Vector Machine with one input,
+                //  using the linear kernel and for four disjoint classes.
+                var machine = new MulticlassSupportVectorMachine(5, kernel, numOfClasses);
+
+                // Create the Multi-class learning algorithm for the machine
+                var teacher = new MulticlassSupportVectorLearning(machine, inputs, outputs);
+
+                // Configure the learning algorithm to use SMO to train the
+                //  underlying SVMs in each of the binary class subproblems.
+                teacher.Algorithm = (svm, classInputs, classOutputs, i, j) =>
+                     new SequentialMinimalOptimization(svm, classInputs, classOutputs);
+
+                // Run the learning algorithm   
+                double error = teacher.Run(); // output should be 0
+
+
+
+                int decision = machine.Compute(distances); //svm AI 
+                output.Text = output.Text + Char2SvmClass.class2svm(decision);
+            }
 
         }
 

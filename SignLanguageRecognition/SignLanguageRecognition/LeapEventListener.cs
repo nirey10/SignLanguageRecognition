@@ -67,6 +67,15 @@ namespace SignLanguageRecognition
             return outDistance;
 
         }
+        public static bool isZeros(double[] arr)
+        {
+            for(int i=0;i<5;i++)
+            {
+                if (arr[i] == 0)
+                    return true;
+            }
+            return false;
+        }
 
         public static double[] getVelocity(Frame frame)
         {

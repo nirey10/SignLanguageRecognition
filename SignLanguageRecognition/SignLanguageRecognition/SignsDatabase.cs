@@ -177,7 +177,7 @@ namespace SignLanguageRecognition
         {
             double[] distances = new double[5];
 
-            if (fr == null)
+            if (fr == null || LeapEventListener.isZeros(distances) == true)
             {
                 MessageBox.Show("The frame is null.\n Try reconnecting the Leap device", "Application Error",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
@@ -185,8 +185,7 @@ namespace SignLanguageRecognition
             else
             {
                 distances = LeapEventListener.getDistances(fr);
-
-
+                
                 if (MessageBox.Show("Do you want to save the sample as "+LettersCombo.Text+"?", "Signs DataSet",
              MessageBoxButtons.YesNo, MessageBoxIcon.Question)
              == DialogResult.Yes)

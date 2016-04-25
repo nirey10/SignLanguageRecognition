@@ -234,7 +234,7 @@ namespace SignLanguageRecognition
 
         int timeStamp = 0;
         bool toExtract = false;
-        bool alreadyPrinted = false; 
+        bool printPermission = false; 
         Frame tempFrame;
         private void Timer_Tick(Object sender, EventArgs e) //timer for continuous check 
 		{
@@ -244,22 +244,23 @@ namespace SignLanguageRecognition
             
             if (velocityArr[0] < Constants.velocityThreshold && velocityArr[1] < Constants.velocityThreshold && velocityArr[2] < Constants.velocityThreshold && velocityArr[3] < Constants.velocityThreshold && velocityArr[4] < Constants.velocityThreshold)
             {
-
-
-                if (toExtract == false)
+                if (LeapEventListener.isZeros(velocityArr) == false)
                 {
-                    tempFrame = currentFrame;
-                    timeStamp = ts;
-                    toExtract = true;
-                    alreadyPrinted = true;
-                }
-                if (ts - timeStamp > Constants.positionStallThreshold / 10 && toExtract ==true && alreadyPrinted ==true) //check if the user stayed in the same position 1 sec 
-                {
-                    alreadyPrinted = false;
-                    TranslateInstance(tempFrame);
-                    timeStamp = 0;
-                    ts = 0;
 
+                    if (toExtract == false) // if the letter is not ready for extraction
+                    {
+                        tempFrame = currentFrame;
+                        timeStamp = ts;
+                        toExtract = true;
+                        printPermission = true; // gives permission for the letter to be printed, prevent duplicates
+                    }
+                    if (ts - timeStamp > Constants.positionStallThreshold / 10 && toExtract == true && printPermission == true) //check if the user stayed in the same position 1 sec 
+                    {
+                        printPermission = false;
+                        TranslateInstance(tempFrame);
+                        timeStamp = 0;
+                        ts = 0;
+                    }
                 }
                
                 
@@ -290,14 +291,11 @@ namespace SignLanguageRecognition
 
         }
 
-        private void StartListeningBtn_Click(object sender, EventArgs e)
-        {
-            StatusGif.Enabled = true;
-        }
+       
 
-        private void StopListeningBtn_Click(object sender, EventArgs e)
+        private void clearBtn_Click(object sender, EventArgs e)
         {
-            StatusGif.Enabled = false;
+            output.Text = "";
         }
     }
 }
