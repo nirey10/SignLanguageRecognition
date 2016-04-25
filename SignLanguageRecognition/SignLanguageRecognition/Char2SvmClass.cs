@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace SignLanguageRecognition
 {
     class Char2SvmClass
-    {//try
+    {
         public static int char2class(char c){
             int svmClass = 0;
             switch (c)
