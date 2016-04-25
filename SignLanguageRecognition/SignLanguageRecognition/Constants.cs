@@ -9,5 +9,6 @@ namespace SignLanguageRecognition
     class Constants
     {
         public static int framesInterval = 5; //checks every framesInterval frames
+        public static int continuousTimerInterval = 10 ;
     }
 }

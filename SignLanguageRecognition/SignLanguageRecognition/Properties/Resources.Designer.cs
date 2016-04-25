@@ -123,6 +123,16 @@ namespace SignLanguageRecognition.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Loading11 {
+            get {
+                object obj = ResourceManager.GetObject("Loading11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Play_icon {
             get {
                 object obj = ResourceManager.GetObject("Play_icon", resourceCulture);
@@ -136,6 +146,16 @@ namespace SignLanguageRecognition.Properties {
         internal static System.Drawing.Bitmap Stop_icon2 {
             get {
                 object obj = ResourceManager.GetObject("Stop_icon2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Stop_icon21 {
+            get {
+                object obj = ResourceManager.GetObject("Stop_icon21", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

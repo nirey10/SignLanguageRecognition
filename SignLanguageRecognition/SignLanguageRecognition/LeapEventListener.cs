@@ -67,5 +67,31 @@ namespace SignLanguageRecognition
             return outDistance;
 
         }
+
+        public static double[] getVelocity(Frame frame)
+        {
+            double[] outVelocity = new double[5];
+            Finger thumbV, indexV, middleV, ringV, pinkyV;
+            double palmX, palmY, palmZ;
+
+
+            thumbV = frame.Hands[0].Fingers[0];
+            indexV = frame.Hands[0].Fingers[1];
+            middleV = frame.Hands[0].Fingers[2];
+            ringV = frame.Hands[0].Fingers[3];
+            pinkyV = frame.Hands[0].Fingers[4];
+
+
+            palmX = frame.Hands[0].PalmVelocity.x;
+            palmY = frame.Hands[0].PalmVelocity.y;
+            palmZ = frame.Hands[0].PalmVelocity.z;
+
+
+           // outVelocity[0] = Math.Sqrt()
+
+
+            return outVelocity;
+
+        }
     }
 }
