@@ -127,7 +127,7 @@ namespace SignLanguageRecognition
             {
 
 
-                distances = LeapEventListener.getDistances(frame);
+                distances = LeapEventListener.getVelocity(frame);
                 OutputData1.Text = distances[0].ToString();
                 OutputData2.Text = distances[1].ToString();
                 OutputData3.Text = distances[2].ToString();
@@ -140,7 +140,7 @@ namespace SignLanguageRecognition
 
         }
 
-        void TranslateInstance()
+        void TranslateInstance(Frame frame)
         {
             // Create a new Linear kernel
             IKernel kernel = new Linear();
@@ -161,7 +161,7 @@ namespace SignLanguageRecognition
             double error = teacher.Run(); // output should be 0
 
             double[] distances = new double[5];
-            distances = LeapEventListener.getDistances(currentFrame);
+            distances = LeapEventListener.getDistances(frame);
 
             int decision = machine.Compute(distances); //svm AI 
             output.Text = output.Text + Char2SvmClass.class2svm(decision);
@@ -232,16 +232,45 @@ namespace SignLanguageRecognition
 
         }
 
-
+        int timeStamp = 0;
+        bool toExtract = false;
+        bool alreadyPrinted = false; 
+        Frame tempFrame;
         private void Timer_Tick(Object sender, EventArgs e) //timer for continuous check 
 		{
-
+            double[] velocityArr = LeapEventListener.getVelocity(currentFrame);
             ts++;
-            if(ts%100==0)
+
+            
+            if (velocityArr[0] < Constants.velocityThreshold && velocityArr[1] < Constants.velocityThreshold && velocityArr[2] < Constants.velocityThreshold && velocityArr[3] < Constants.velocityThreshold && velocityArr[4] < Constants.velocityThreshold)
             {
+
+
+                if (toExtract == false)
+                {
+                    tempFrame = currentFrame;
+                    timeStamp = ts;
+                    toExtract = true;
+                    alreadyPrinted = true;
+                }
+                if (ts - timeStamp > Constants.positionStallThreshold / 10 && toExtract ==true && alreadyPrinted ==true) //check if the user stayed in the same position 1 sec 
+                {
+                    alreadyPrinted = false;
+                    TranslateInstance(tempFrame);
+                    timeStamp = 0;
+                    ts = 0;
+
+                }
                
-            }						
-			
+                
+            }
+            else//user switch to the next letter
+            {
+                
+                toExtract = false;
+
+            }
+            
 		}
         private void BackToMenuBtn_Click(object sender, EventArgs e)
         {
