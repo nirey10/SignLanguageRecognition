@@ -87,7 +87,11 @@ namespace SignLanguageRecognition
             palmZ = frame.Hands[0].PalmVelocity.z;
 
 
-           // outVelocity[0] = Math.Sqrt()
+            outVelocity[0] = Math.Sqrt(Math.Pow(thumbV.TipVelocity.x,2)+Math.Pow(thumbV.TipVelocity.y,2)+Math.Pow(thumbV.TipVelocity.z,2));
+            outVelocity[1] = Math.Sqrt(Math.Pow(indexV.TipVelocity.x, 2) + Math.Pow(indexV.TipVelocity.y, 2) + Math.Pow(indexV.TipVelocity.z, 2));
+            outVelocity[2] = Math.Sqrt(Math.Pow(middleV.TipVelocity.x, 2) + Math.Pow(middleV.TipVelocity.y, 2) + Math.Pow(middleV.TipVelocity.z, 2));
+            outVelocity[3] = Math.Sqrt(Math.Pow(ringV.TipVelocity.x, 2) + Math.Pow(ringV.TipVelocity.y, 2) + Math.Pow(ringV.TipVelocity.z, 2));
+            outVelocity[4] = Math.Sqrt(Math.Pow(pinkyV.TipVelocity.x, 2) + Math.Pow(pinkyV.TipVelocity.y, 2) + Math.Pow(pinkyV.TipVelocity.z, 2));
 
 
             return outVelocity;
