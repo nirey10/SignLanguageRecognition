@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Char2SvmClass.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="ILeapEventDelegate.cs" />
     <Compile Include="LeapEventListener.cs" />
     <Compile Include="MainMenu.cs">

@@ -111,7 +111,7 @@ namespace SignLanguageRecognition
 
 
             i++;
-            if (i == 10)
+            if (i == Constants.framesInterval)
             {
               
 
