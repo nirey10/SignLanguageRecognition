@@ -176,6 +176,7 @@ namespace SignLanguageRecognition
         private void saveSapmle(Frame fr)
         {
             double[] distances = new double[5];
+            distances = LeapEventListener.getDistances(fr);
 
             if (fr == null || LeapEventListener.isZeros(distances) == true)
             {
@@ -184,7 +185,7 @@ namespace SignLanguageRecognition
             }
             else
             {
-                distances = LeapEventListener.getDistances(fr);
+                
                 
                 if (MessageBox.Show("Do you want to save the sample as "+LettersCombo.Text+"?", "Signs DataSet",
              MessageBoxButtons.YesNo, MessageBoxIcon.Question)
