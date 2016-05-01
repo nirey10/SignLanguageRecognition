@@ -30,6 +30,9 @@ namespace SignLanguageRecognition
                 case 'ו':
                     svmClass = 6;
                     break;
+                case ' ':
+                    svmClass = 7;
+                    break;
 
 
             }
@@ -60,6 +63,9 @@ namespace SignLanguageRecognition
                     break;
                 case (6):
                     c = 'ו';
+                    break;
+                case (7):
+                    c = Convert.ToChar(32);
                     break;
 
             }
