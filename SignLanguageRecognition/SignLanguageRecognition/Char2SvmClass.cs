@@ -40,9 +40,7 @@ namespace SignLanguageRecognition
             char c='*';
             switch (decision)
             {
-                case (0) :
-                    c = '*';
-                    break;
+                
                 case (1):
                     c = 'א';
                     break;
@@ -58,7 +56,7 @@ namespace SignLanguageRecognition
                 case (5):
                     c = 'י';
                     break;
-                case (6):
+                case (0):
                     c = 'ו';
                     break;
 
