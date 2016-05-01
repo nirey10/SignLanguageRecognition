@@ -236,6 +236,7 @@ namespace SignLanguageRecognition
         bool toExtract = false;
         bool printPermission = false; 
         Frame tempFrame;
+        
         private void Timer_Tick(Object sender, EventArgs e) //timer for continuous check 
 		{
             double[] velocityArr = LeapEventListener.getVelocity(currentFrame);
@@ -246,13 +247,27 @@ namespace SignLanguageRecognition
             {
                 if (LeapEventListener.isZeros(velocityArr) == false)
                 {
+                    /*
+                    if (ts - timeStamp > Constants.positionStallThreshold / 10)
+                    {
+                        tempFrame = currentFrame;
+                        timeStamp = ts;
+                        TranslateInstance(tempFrame);
 
+                    }
+                    */
+   
+                    
                     if (toExtract == false) // if the letter is not ready for extraction
                     {
                         tempFrame = currentFrame;
                         timeStamp = ts;
                         toExtract = true;
                         printPermission = true; // gives permission for the letter to be printed, prevent duplicates
+                    }
+                    if (ts - timeStamp > (Constants.positionStallThreshold / 10) /2) //check if the user stayed in the same position 1 sec 
+                    {
+                        tempFrame = currentFrame;
                     }
                     if (ts - timeStamp > Constants.positionStallThreshold / 10 && toExtract == true && printPermission == true) //check if the user stayed in the same position 1 sec 
                     {
@@ -261,6 +276,7 @@ namespace SignLanguageRecognition
                         timeStamp = 0;
                         ts = 0;
                     }
+                   
                 }
                
                 
@@ -269,6 +285,8 @@ namespace SignLanguageRecognition
             {
                 
                 toExtract = false;
+                printPermission = false;
+              //  timeStamp = ts; // sahar
 
             }
             

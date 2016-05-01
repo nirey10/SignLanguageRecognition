@@ -28,7 +28,7 @@ namespace SignLanguageRecognition
                     svmClass = 5;
                     break;
                 case 'ו':
-                    svmClass = 6;
+                    svmClass = 0;
                     break;
 
 

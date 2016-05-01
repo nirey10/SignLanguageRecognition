@@ -10,7 +10,7 @@ namespace SignLanguageRecognition
     {
         public static int framesInterval = 5; //checks every framesInterval frames
         public static int continuousTimerInterval = 10 ; 
-        public static int velocityThreshold = 150; //velocity threshold for continuous data instance . 
-        public static int positionStallThreshold = 200; //value in millisecond . 
+        public static int velocityThreshold = 170; //velocity threshold for continuous data instance . 
+        public static int positionStallThreshold = 300; //value in millisecond . 
     }
 }
