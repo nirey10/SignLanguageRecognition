@@ -315,5 +315,10 @@ namespace SignLanguageRecognition
         {
             output.Text = "";
         }
+
+        private void informationBox_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -63,11 +63,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Monotype Corsiva", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Monotype Hadassah", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label2.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label2.Location = new System.Drawing.Point(142, 29);
+            this.label2.Location = new System.Drawing.Point(106, 29);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(273, 36);
+            this.label2.Size = new System.Drawing.Size(357, 40);
             this.label2.TabIndex = 21;
             this.label2.Text = "Continuous Translation";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -97,14 +97,15 @@
             this.informationBox.Controls.Add(this.label4);
             this.informationBox.Controls.Add(this.label3);
             this.informationBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.informationBox.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.informationBox.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.informationBox.ForeColor = System.Drawing.Color.SteelBlue;
             this.informationBox.Location = new System.Drawing.Point(12, 99);
             this.informationBox.Name = "informationBox";
             this.informationBox.Size = new System.Drawing.Size(233, 187);
             this.informationBox.TabIndex = 25;
             this.informationBox.TabStop = false;
-            this.informationBox.Text = "Velocity Information";
+            this.informationBox.Text = "Velocity Information:";
+            this.informationBox.Enter += new System.EventHandler(this.informationBox_Enter);
             // 
             // OutputData5
             // 
@@ -170,11 +171,11 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Salmon;
             this.label7.Location = new System.Drawing.Point(6, 140);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 22);
+            this.label7.Size = new System.Drawing.Size(59, 20);
             this.label7.TabIndex = 8;
             this.label7.Text = "Pinky:";
             // 
@@ -182,11 +183,11 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Salmon;
             this.label6.Location = new System.Drawing.Point(6, 118);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(48, 22);
+            this.label6.Size = new System.Drawing.Size(52, 20);
             this.label6.TabIndex = 7;
             this.label6.Text = "Ring:";
             // 
@@ -194,11 +195,11 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Salmon;
             this.label5.Location = new System.Drawing.Point(6, 96);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 22);
+            this.label5.Size = new System.Drawing.Size(69, 20);
             this.label5.TabIndex = 6;
             this.label5.Text = "Middle:";
             // 
@@ -206,11 +207,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Salmon;
             this.label4.Location = new System.Drawing.Point(6, 74);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 22);
+            this.label4.Size = new System.Drawing.Size(62, 20);
             this.label4.TabIndex = 5;
             this.label4.Text = "Index:";
             // 
@@ -218,11 +219,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Salmon;
             this.label3.Location = new System.Drawing.Point(6, 52);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 22);
+            this.label3.Size = new System.Drawing.Size(71, 20);
             this.label3.TabIndex = 4;
             this.label3.Text = "Thumb:";
             // 
