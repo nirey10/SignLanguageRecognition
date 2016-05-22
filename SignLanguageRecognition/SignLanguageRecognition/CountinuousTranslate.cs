@@ -120,7 +120,7 @@ namespace SignLanguageRecognition
             currentFrame = frame;
 
             double[] distances = new double[5];
-
+            
 
             i++;
             if (i == Constants.framesInterval)
@@ -239,57 +239,59 @@ namespace SignLanguageRecognition
         
         private void Timer_Tick(Object sender, EventArgs e) //timer for continuous check 
 		{
-            double[] velocityArr = LeapEventListener.getVelocity(currentFrame);
-            ts++;
-
-            
-            if (velocityArr[0] < Constants.velocityThreshold && velocityArr[1] < Constants.velocityThreshold && velocityArr[2] < Constants.velocityThreshold && velocityArr[3] < Constants.velocityThreshold && velocityArr[4] < Constants.velocityThreshold)
+            if (currentFrame!= null)
             {
-                if (LeapEventListener.isZeros(velocityArr) == false)
+                double[] velocityArr = LeapEventListener.getVelocity(currentFrame);
+                ts++;
+
+
+                if (velocityArr[0] < Constants.velocityThreshold && velocityArr[1] < Constants.velocityThreshold && velocityArr[2] < Constants.velocityThreshold && velocityArr[3] < Constants.velocityThreshold && velocityArr[4] < Constants.velocityThreshold)
                 {
-                    /*
-                    if (ts - timeStamp > Constants.positionStallThreshold / 10)
+                    if (LeapEventListener.isZeros(velocityArr) == false)
                     {
-                        tempFrame = currentFrame;
-                        timeStamp = ts;
-                        TranslateInstance(tempFrame);
+                        /*
+                        if (ts - timeStamp > Constants.positionStallThreshold / 10)
+                        {
+                            tempFrame = currentFrame;
+                            timeStamp = ts;
+                            TranslateInstance(tempFrame);
+
+                        }
+                        */
+
+
+                        if (toExtract == false) // if the letter is not ready for extraction
+                        {
+                            tempFrame = currentFrame;
+                            timeStamp = ts;
+                            toExtract = true;
+                            printPermission = true; // gives permission for the letter to be printed, prevent duplicates
+                        }
+                        if (ts - timeStamp > (Constants.positionStallThreshold / 10) / 2) //check if the user stayed in the same position 1 sec 
+                        {
+                            tempFrame = currentFrame;
+                        }
+                        if (ts - timeStamp > Constants.positionStallThreshold / 10 && toExtract == true && printPermission == true) //check if the user stayed in the same position 1 sec 
+                        {
+                            printPermission = false;
+                            TranslateInstance(tempFrame);
+                            timeStamp = 0;
+                            ts = 0;
+                        }
 
                     }
-                    */
-   
-                    
-                    if (toExtract == false) // if the letter is not ready for extraction
-                    {
-                        tempFrame = currentFrame;
-                        timeStamp = ts;
-                        toExtract = true;
-                        printPermission = true; // gives permission for the letter to be printed, prevent duplicates
-                    }
-                    if (ts - timeStamp > (Constants.positionStallThreshold / 10) /2) //check if the user stayed in the same position 1 sec 
-                    {
-                        tempFrame = currentFrame;
-                    }
-                    if (ts - timeStamp > Constants.positionStallThreshold / 10 && toExtract == true && printPermission == true) //check if the user stayed in the same position 1 sec 
-                    {
-                        printPermission = false;
-                        TranslateInstance(tempFrame);
-                        timeStamp = 0;
-                        ts = 0;
-                    }
-                   
+
+
                 }
-               
-                
-            }
-            else//user switch to the next letter
-            {
-                
-                toExtract = false;
-                printPermission = false;
-              //  timeStamp = ts; // sahar
+                else//user switch to the next letter
+                {
 
+                    toExtract = false;
+                    printPermission = false;
+                    //  timeStamp = ts; // sahar
+
+                }
             }
-            
 		}
         private void BackToMenuBtn_Click(object sender, EventArgs e)
         {
