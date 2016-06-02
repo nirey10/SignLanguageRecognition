@@ -233,7 +233,7 @@ namespace SignLanguageRecognition
                 //  underlying SVMs in each of the binary class subproblems.
                 teacher.Algorithm = (svm, classInputs, classOutputs, i, j) =>
                      new SequentialMinimalOptimization(svm, classInputs, classOutputs);
-
+                
                 // Run the learning algorithm   
                 double error = teacher.Run(); // output should be 0
 

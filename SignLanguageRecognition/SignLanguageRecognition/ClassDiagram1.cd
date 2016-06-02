@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SignLanguageRecognition.Char2SvmClass">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Char2SvmClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SignLanguageRecognition.Constants">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAgAAQAAAAAIAAA=</HashCode>
+      <FileName>Constants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SignLanguageRecognition.CountinuousTranslate" BaseTypeListCollapsed="true">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Delegate Name="SignLanguageRecognition.CountinuousTranslate.LeapEventDelegate" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>CountinuousTranslate.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>BJQCAAQgkikAIhFAAAiRAJACnIQgABCAIgAIAAQAAAA=</HashCode>
+      <FileName>CountinuousTranslate.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SignLanguageRecognition.LeapEventListener">
+    <Position X="11.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAQAAAIAAAAAAAAgAUAAQAAABAAAAABAA=</HashCode>
+      <FileName>LeapEventListener.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SignLanguageRecognition.MainMenu" BaseTypeListCollapsed="true">
+    <Position X="4.5" Y="2.75" Width="1.5" />
+    <NestedTypes>
+      <Delegate Name="SignLanguageRecognition.MainMenu.LeapEventDelegate" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>MainMenu.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>ABAMAAAkACgKABEAAACAEAAKAIAAAAAABEAAAAIAAAA=</HashCode>
+      <FileName>MainMenu.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SignLanguageRecognition.Program">
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SignLanguageRecognition.SignsDatabase" BaseTypeListCollapsed="true">
+    <Position X="5.5" Y="0.75" Width="1.5" />
+    <NestedTypes>
+      <Delegate Name="SignLanguageRecognition.SignsDatabase.LeapEventDelegate" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>SignsDatabase.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>BBAAAIEokqkAAREEwACRCAACnIQhAUBAIAAIAAAAgAA=</HashCode>
+      <FileName>SignsDatabase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SignLanguageRecognition.SingleInstanceTranslate" BaseTypeListCollapsed="true">
+    <Position X="8.25" Y="2.5" Width="1.5" />
+    <NestedTypes>
+      <Delegate Name="SignLanguageRecognition.SingleInstanceTranslate.LeapEventDelegate" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>SingleInstanceTranslate.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>BBAAAAAgmmEAABEAAAiRAAACnYQgABAAICAIAAQAAAA=</HashCode>
+      <FileName>SingleInstanceTranslate.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SignLanguageRecognition.Properties.Resources">
+    <Position X="14" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAQEAAAIAAAAAgAAAABEAAgEQAAAAAAEAAAABAACIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="SignLanguageRecognition.ILeapEventDelegate">
+    <Position X="6.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ILeapEventDelegate.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
